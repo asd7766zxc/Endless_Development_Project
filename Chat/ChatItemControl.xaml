@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Chat_Pro_NCP.ChatItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chat_Pro_NCP"
+             mc:Ignorable="d" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             d:DesignHeight="65" d:DesignWidth="300">
+    <UserControl.Resources>
+
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Border x:Name="background" BorderThickness="0 0.1 0 0" BorderBrush="#36393F" Background="#AD292929">
+                            <Grid x:Name="container" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Background="#FF9CCC65" Width="0"  HorizontalAlignment="Left" />
+                                <Border Height="60" Grid.Column="0" Padding="8">
+                                    <Border 
+                                        Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}" 
+                                        CornerRadius="{Binding ActualHeight,RelativeSource={RelativeSource Self}}">
+                                        <Grid  Margin="0 0 0 0">
+                                            <Border Name="Mask"
+                                                     Background="#FFFF"
+                                                     BorderBrush="#4FC3F7"
+                                                    BorderThickness="1"
+                                                    CornerRadius="{Binding ActualHeight,RelativeSource={RelativeSource Self}}">
+                                                <Border.Effect>
+                                                    <BlurEffect Radius="0.25" />
+                                                </Border.Effect>
+                                            </Border>
+                                            <Button
+                                                BorderBrush="Transparent"
+                                                Background="Transparent"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                                   Foreground="White"
+                                                   FontSize="20"
+                                                Margin="0 0 0 0"
+                                                   FontFamily="{StaticResource LatoRegular}">
+
+                                                <Viewbox>
+                                                    <StackPanel>
+                                                        <Image Source="{Binding AvatarUrl,Converter={local:PathUrlToImageConverter}}" />
+                                                        <StackPanel.OpacityMask>
+                                                            <VisualBrush Visual="{Binding ElementName=Mask}" />
+                                                        </StackPanel.OpacityMask>
+                                                    </StackPanel>
+                                                </Viewbox>
+                                            </Button>
+                                            
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border Grid.Column="1" Padding="0 0 8 0">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <Grid>
+                                            <TextBlock FontSize="14" Foreground="#FF80CBC4" TextTrimming="CharacterEllipsis"  Text="{Binding Name}" FontFamily="{StaticResource LatoRegular}"/>
+                                            <TextBlock FontSize="12" Foreground="#FF80CBC4" HorizontalAlignment="Right" TextTrimming="CharacterEllipsis"  Text="{Binding Date}" FontFamily="{StaticResource LatoRegular}"/>
+                                        </Grid>
+                                        <TextBlock FontSize="15" Foreground="White" Text="{Binding message}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontFamily="{StaticResource LatoRegular}"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                <Setter Property="Background" TargetName="background" Value="{StaticResource BackgroundTransparencyBrush}"/>
+                            </DataTrigger>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="container" Value="{StaticResource Button.Disabled.Background}"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <ContentControl d:DataContext="{x:Static local:ChatItemDesignModel.Instance}" 
+                    Style="{StaticResource ContentStyle}"/>
+</UserControl>

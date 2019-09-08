@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <IpAddressClient>1.172.13.46</IpAddressClient>
+  <IPAddressServer>127.0.0.1</IPAddressServer>
+  <PortClient>15123</PortClient>
+  <PortServer>65536</PortServer>
+  <SoundInputDeviceNameClient>VoiceMeeter Output (VB-Audio Vo</SoundInputDeviceNameClient>
+  <SoundOutputDeviceNameClient>None</SoundOutputDeviceNameClient>
+  <SoundInputDeviceNameServer />
+  <SoundOutputDeviceNameServer />
+  <SamplesPerSecondClient>4410</SamplesPerSecondClient>
+  <BitsPerSampleClient>16</BitsPerSampleClient>
+  <ChannelsClient>1</ChannelsClient>
+  <SamplesPerSecondServer>4100</SamplesPerSecondServer>
+  <BitsPerSampleServer>16</BitsPerSampleServer>
+  <ChannelsServer>1</ChannelsServer>
+  <UseJitterBufferClientRecording>true</UseJitterBufferClientRecording>
+  <UseJitterBufferServerRecording>true</UseJitterBufferServerRecording>
+  <JitterBufferCountServer>20</JitterBufferCountServer>
+  <JitterBufferCountClient>20</JitterBufferCountClient>
+  <FileName />
+  <LoopFile>false</LoopFile>
+  <MuteClientPlaying>false</MuteClientPlaying>
+  <ServerNoSpeakAll>false</ServerNoSpeakAll>
+  <ClientNoSpeakAll>false</ClientNoSpeakAll>
+  <MuteServerListen>false</MuteServerListen>
+</Configuration>

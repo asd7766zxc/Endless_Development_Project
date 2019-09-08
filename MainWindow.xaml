@@ -1,0 +1,191 @@
+﻿<Window x:Class="Endless_Development_Project_Studio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Endless_Development_Project_Studio"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:local1="clr-namespace:Chat_Pro_NCP"
+        xmlns:local2="clr-namespace:Endless_Development_Project_Studio.WindowFrame"
+        xmlns:local3="clr-namespace:Server_Restart_Final"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="Black"
+        AllowsTransparency="True"
+        Title="MainWindow" Height="700" Width="900">
+    <Window.Resources>
+        <Style TargetType="local:MainWindow">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Border Padding="{Binding OuterMarginSizeThickness,FallbackValue=10}">
+                            <Grid>
+                                <Border x:Name="Container"
+                                        Background="Transparent"
+                                        CornerRadius="{Binding WindowCornerRadius}"/>
+                                <Border Background="Transparent" BorderThickness="5" BorderBrush="#0D1E1E1E">
+                                    <Border.Effect>
+                                        <BlurEffect Radius="1"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border CornerRadius="{Binding WindowCornerRadius}"
+                                    Background="{Binding ForegroundLightBrush,FallbackValue=#}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1" Opacity="0.2"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Grid>
+
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="{Binding TitleHeightGridLenght,FallbackValue=30}"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+
+                                    <Grid Background="#2D2D30" Grid.Column="0" Panel.ZIndex="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Button Style="{StaticResource Hoverless}" WindowChrome.IsHitTestVisibleInChrome="True"  Command="{Binding MenuCommand}" Grid.ColumnSpan="2" Margin="0,0,632,0">
+
+                                        </Button>
+
+                                        <Viewbox  Grid.Column="0" Grid.ColumnSpan="1" Margin="6">
+                                            <StackPanel>
+                                                <TextBlock Name="TitleBlock" FontFamily="{StaticResource LatoRegular}" FontSize="500" Margin="0,0,0,-5">
+                                                    <Run Text="Endless Development Project Studio" Foreground="{StaticResource ForegroundGrayBrush}"/>
+                                                      <Run Text="{Binding UserName}" Foreground="{StaticResource ForegroundGrayBrush}"/>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </Viewbox>
+
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
+                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}" Click="Button_Click_1" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
+                                            <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MediaElementStyle" TargetType="{x:Type MediaElement}">
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+        </Style>
+        <SolidColorBrush x:Key="Button.MouseOver.Background2" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border2" Color="#FF3C7FB1"/>
+        <Style x:Key="LogoutButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#f44336"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#AAf44336"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border2}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#f44336"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="#00f44336"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="20"
+            CaptionHeight="32"
+            CornerRadius="10"
+            GlassFrameThickness="0"
+            />
+    </WindowChrome.WindowChrome>
+    <Border Background="#0000" Height="Auto" Width="Auto">
+        <Grid Name="MainGrid">
+
+            <Grid x:Name="ADS">
+
+                <Grid.Background>
+                    <ImageBrush ViewportUnits="Absolute" ImageSource="Image/Fp5aDYs - Imgur.jpg" Viewport="0 0 1920 1080" />
+                </Grid.Background>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid  Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Border Height="25" Background="#AA1e1e1e" VerticalAlignment="Top" >
+                            <Label Foreground="White" Content="Main Channel" />
+                        </Border>
+                        <Border Grid.Row="1" Margin="0 0 0 0" Height="Auto">
+                            <local1:ChatItemCollectionsControl x:Name="CCC" Width="auto" Height="{Binding ActualHeight,RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=Border}}" />
+                        </Border>
+                    </Grid>
+                    <Frame Grid.Column="2" x:Name="MainFrame" Content="{Binding CurrentPage,Converter={local1:ApplicationPageValueConverter}}"/>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="450"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                      
+                        
+                                     <Frame Height="450" Grid.Row="1" x:Name="InformationWindowPageContainer" />
+                    </Grid>
+                    <Button Name="LogOutButton" Visibility="Collapsed" Height="40" BorderThickness="0" VerticalAlignment="Top" Foreground="White" Content="Logout" Background="Transparent" Style="{DynamicResource LogoutButton}" Click="Button_Click_2" />
+                </Grid>
+              
+            </Grid>
+            <Grid Name="CACA">
+                <Frame Background="Transparent" Height="350" Width="200" MouseDown="VoicePageContainer_MouseDown" MouseUp="VoicePageContainer_MouseUp" MouseLeave="VoicePageContainer_MouseLeave" MouseMove="VoicePageContainer_MouseMove" Visibility="Visible" x:Name="VoicePageContainer" />
+            </Grid>
+            <Label Content="Copyright© 2019 asd7766zxc" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" />
+            <Label Content="Copyright© 2019 asd7766zxc" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <Label.Effect>
+                    <BlurEffect/>
+                </Label.Effect>
+            </Label>
+
+
+           
+        </Grid>
+    </Border>
+</Window>
+    

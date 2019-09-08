@@ -1,0 +1,106 @@
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Chat\ChatItemControl.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\ChatListControl.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\ChatListItemControl.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\LeftSideMenuList.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\SideMenuControl.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\VoiceGroupControl.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\MainWindow.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\ChatPage.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\LoginPage.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\VoicePage.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Naudio\VoiceChatContainer.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\App.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio_MarkupCompile.cache
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio_MarkupCompile.lref
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Chat\ChatItemCollectionsControl.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Chat\ChatItemCollectionsControl.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Chat\ChatItemControl.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Endless Development Project Studio.exe.config
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Endless Development Project Studio.exe
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Endless Development Project Studio.pdb
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Dapper.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\ESBasic.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.AudioVideoPlayback.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.Diagnostics.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.Direct3D.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.Direct3DX.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.DirectDraw.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.DirectInput.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.DirectPlay.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.DirectSound.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\NAudio.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Newtonsoft.Json.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\NSpeex.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\NSpeex.Reactive.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.Boost.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.WPF.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Syn.Bot.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Syn.Chat.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\System.Reactive.Core.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\System.Reactive.Interfaces.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\System.Reactive.Linq.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\System.Reactive.PlatformServices.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Dapper.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\ESBasic.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.AudioVideoPlayback.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.Diagnostics.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.Direct3D.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.Direct3DX.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.DirectDraw.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.DirectInput.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.DirectPlay.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.DirectSound.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\NAudio.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Newtonsoft.Json.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\NSpeex.pdb
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\NSpeex.Reactive.pdb
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.Boost.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.WPF.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Syn.Bot.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Syn.Chat.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\System.Reactive.Core.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\System.Reactive.Interfaces.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\System.Reactive.Linq.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\System.Reactive.PlatformServices.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\App.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\ChatListControl.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\ChatListItemControl.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\LeftSideMenuList.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\SideMenuControl.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\VoiceGroupControl.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\MainWindow.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\ChatPage.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\LoginPage.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\VoicePage.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Styles\Buttons.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Styles\Colors.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Styles\Fonts.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Naudio\VoiceChatContainer.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Windows\Resize\ResizerStyle.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio.g.resources
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless_Development_Project_Studio.Properties.Resources.resources
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio.csproj.GenerateResource.cache
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio.csproj.CopyComplete
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio.exe
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio.pdb
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\InformationWindowPage.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\InformationWindowPage.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\WindowFrame\WindowFrameContainer.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\WindowFrame\WindowFrameContainer.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\ContentResize\ResizerStyle.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\WindowFrame\FrameControl.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\WindowFrame\FrameControl.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.AspNet.SignalR.Client.pdb
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.AspNet.SignalR.Client.xml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\discord-rpc-w32.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio_Content.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\MainPage.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Page\MainPage.baml

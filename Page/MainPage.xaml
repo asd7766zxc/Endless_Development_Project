@@ -1,0 +1,81 @@
+﻿<local:BasePageContainer x:Class="Endless_Development_Project_Studio.MainPage"
+                x:TypeArguments="local1:MainPageViewModel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Chat_Pro_NCP"
+      xmlns:local1="clr-namespace:Endless_Development_Project_Studio.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Page.Resources>
+        <Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <Grid>
+                                <Border BorderBrush="#fff" BorderThickness="2" Height="30" Width="30">
+                                    <Border.RenderTransform>
+                                        <RotateTransform CenterX="15" CenterY="15" Angle="45" />
+                                    </Border.RenderTransform>
+                                    <Border.Effect>
+                                        <BlurEffect />
+                                    </Border.Effect>
+                                </Border>
+                                <Rectangle x:Name="CloseRect" Height="26" Width="26">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="#202225" />
+                                        </Rectangle.Fill>
+                                        <Rectangle.RenderTransform>
+                                            <RotateTransform CenterX="13" CenterY="13" Angle="45" />
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                               
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Rectangle.Fill" TargetName="CloseRect" Value="#FFFF"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#0000"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Rectangle.Fill" TargetName="CloseRect" Value="#FFf44336"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Style="{StaticResource CloseButtonStyle}" />
+    </Grid>
+</local:BasePageContainer>

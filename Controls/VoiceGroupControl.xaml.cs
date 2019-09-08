@@ -1,0 +1,40 @@
+﻿using ESBasic;
+using OMCS.Contracts;
+using OMCS.Passive;
+using OMCS.Passive.MultiChat;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Endless_Development_Project_Studio.Controls
+{
+    /// <summary>
+    /// VoiceGroupControl.xaml 的互動邏輯
+    /// </summary>
+    public partial class VoiceGroupControl : UserControl
+    {
+        private IMultimediaManager multimediaManager;
+        private IChatGroup chatGroup;
+
+        /// <summary>
+        /// 当点击邀请好友的Button时，触发此事件。
+        /// </summary>
+        public event CbGeneric InviteFriendClick;
+
+        public VoiceGroupControl()
+        {
+            InitializeComponent();
+        }
+    }
+}

@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\ILMerge.3.0.29\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B78A552-875E-40D0-9614-02FF3097C925}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Endless_Development_Project_Studio</RootNamespace>
+    <AssemblyName>Endless Development Project Studio</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESBasic">
+      <HintPath>..\..\..\..\3D Objects\Catch\OMCS5.0\ESBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.AudioVideoPlayback, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.AudioVideoPlayback.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.Diagnostics, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.Direct3D.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.Direct3DX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.Direct3DX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectDraw, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.DirectDraw.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectInput, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.DirectInput.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectPlay, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.DirectPlay.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectSound, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.DirectSound.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NSpeex, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSpeex.Reactive.0.0.1\lib\net4\NSpeex.dll</HintPath>
+    </Reference>
+    <Reference Include="NSpeex.Reactive, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSpeex.Reactive.0.0.1\lib\net4\NSpeex.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="OMCS">
+      <HintPath>..\..\..\..\3D Objects\Catch\OMCS5.0\OMCS.dll</HintPath>
+    </Reference>
+    <Reference Include="OMCS.Boost">
+      <HintPath>..\..\..\..\3D Objects\Catch\OMCS5.0\OMCS.Boost.dll</HintPath>
+    </Reference>
+    <Reference Include="OMCS.WPF">
+      <HintPath>..\..\..\..\3D Objects\Catch\OMCS5.0\OMCS.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="Syn.Bot, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syn.Bot.1.1.1\lib\portable-net45+sl5+wp8+win8\Syn.Bot.dll</HintPath>
+    </Reference>
+    <Reference Include="Syn.Chat, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syn.Chat.1.0.3\lib\net45\Syn.Chat.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Chat\ChatCollectionsDesignModel.cs" />
+    <Compile Include="Chat\ChatCollectionsViewModel.cs" />
+    <Compile Include="Chat\ChatItemCollectionsControl.xaml.cs">
+      <DependentUpon>ChatItemCollectionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\ChatItemControl.xaml.cs">
+      <DependentUpon>ChatItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\ChatItemDesignModel.cs" />
+    <Compile Include="Chat\ChatItemViewModel.cs" />
+    <Compile Include="Chat\PathUrlToImageConverter.cs" />
+    <Compile Include="Connection\CheckClient.cs" />
+    <Compile Include="Connection\MainClient.cs" />
+    <Compile Include="Connection\ClientController.cs" />
+    <Compile Include="Connection\SocketStatus.cs" />
+    <Compile Include="Connection\VoiceUserEvent.cs" />
+    <Compile Include="Connection\Voice_Client.cs" />
+    <Compile Include="Containers\WindowsContainerList.cs" />
+    <Compile Include="ContentResize\ResizablePanel.cs" />
+    <Compile Include="ContentResize\Resizer.cs" />
+    <Compile Include="Controls\ChatListControl.xaml.cs" />
+    <Compile Include="Controls\ChatListItemControl.xaml.cs" />
+    <Compile Include="Controls\LeftSideMenuList.xaml.cs">
+      <DependentUpon>LeftSideMenuList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SideMenuControl.xaml.cs" />
+    <Compile Include="Controls\VoiceGroupControl.xaml.cs">
+      <DependentUpon>VoiceGroupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataStorage\AccountModel.cs" />
+    <Compile Include="DataStorage\AccountSave.cs" />
+    <Compile Include="DataStorage\StorageData.cs" />
+    <Compile Include="Discord\Discord.RPC.cs" />
+    <Compile Include="Discord\Player_RPC.cs" />
+    <Compile Include="Events\ReceiveMessageEventHandler.cs" />
+    <Compile Include="Expressions\ExpressionHelpers.cs" />
+    <Compile Include="Helper\DirectSoundHelper.cs" />
+    <Compile Include="Naudio\AcmChatCodec.cs" />
+    <Compile Include="Naudio\ALawChatCodec.cs" />
+    <Compile Include="Naudio\G722ChatCodec.cs" />
+    <Compile Include="Naudio\Gsm610ChatCodec.cs" />
+    <Compile Include="Naudio\IAudioReceiver.cs" />
+    <Compile Include="Naudio\IAudioSender.cs" />
+    <Compile Include="Naudio\INAudioDemoPlugin.cs" />
+    <Compile Include="Naudio\INetworkChatCodec.cs" />
+    <Compile Include="Naudio\MicrosoftAdpcmChatCodec.cs" />
+    <Compile Include="Naudio\MuLawChatCodec.cs" />
+    <Compile Include="Naudio\NetworkAudioPlayer.cs" />
+    <Compile Include="Naudio\NetworkAudioSender.cs" />
+    <Compile Include="Naudio\ReflectionHelper.cs" />
+    <Compile Include="Naudio\SpeexChatCodec.cs" />
+    <Compile Include="Naudio\TcpAudioReceiver.cs" />
+    <Compile Include="Naudio\TcpAudioSender.cs" />
+    <Compile Include="Naudio\TrueSpeechChatCodec.cs" />
+    <Compile Include="Naudio\UdpAudioReceiver.cs" />
+    <Compile Include="Naudio\UdpAudioSender.cs" />
+    <Compile Include="Naudio\UncompressedPcmChatCodec.cs" />
+    <Compile Include="Page\ApplicationPage.cs" />
+    <Compile Include="Page\ApplicationPageValueConverter.cs" />
+    <Compile Include="Page\BaseAttached.cs" />
+    <Compile Include="Page\BasePage.cs" />
+    <Compile Include="Page\BaseValueConverter.cs" />
+    <Compile Include="Page\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Page\ButtonAttachedProperty - 複製.cs" />
+    <Compile Include="Page\ChatPage.xaml.cs">
+      <DependentUpon>ChatPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\IHavePassword.cs" />
+    <Compile Include="Page\InformationWindowPage.xaml.cs">
+      <DependentUpon>InformationWindowPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\MonitorPasswordPropertys.cs" />
+    <Compile Include="Page\OnlinePage.xaml.cs">
+      <DependentUpon>OnlinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\PageAnimation.cs" />
+    <Compile Include="Page\PageAnimations.cs" />
+    <Compile Include="Page\RelayCommand.cs" />
+    <Compile Include="Page\RelayParameterizedCommmand.cs" />
+    <Compile Include="Page\SecureStringHelpers.cs" />
+    <Compile Include="Page\StoryboardHelpers.cs" />
+    <Compile Include="Page\StringRGBToBrushConverter.cs" />
+    <Compile Include="Page\VoicePage.xaml.cs">
+      <DependentUpon>VoicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.cs" />
+    <Compile Include="SQL\ConnectToSQL.cs" />
+    <Compile Include="SQL\dboReport.cs" />
+    <Compile Include="SQL\Message.cs" />
+    <Compile Include="SQL\SQLChat.cs" />
+    <Compile Include="SQL\SQLHelper.cs" />
+    <Compile Include="ViewModel\ChatListDesignModel.cs" />
+    <Compile Include="ViewModel\ChatListItemDesignModel.cs" />
+    <Compile Include="ViewModel\ChatlistItemViewModel.cs" />
+    <Compile Include="ViewModel\ChatlistViewModel.cs" />
+    <Compile Include="ViewModel\ChatPageViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\VoicePageViewModel.cs" />
+    <Compile Include="ViewModel\WindowsVeiwModles.cs" />
+    <Compile Include="VoiceChat\Client.cs" />
+    <Compile Include="VoiceChat\JitterBuffer.cs" />
+    <Compile Include="VoiceChat\Mixer.cs" />
+    <Compile Include="VoiceChat\Player.cs" />
+    <Compile Include="VoiceChat\Recorder.cs" />
+    <Compile Include="VoiceChat\Repeater.cs" />
+    <Compile Include="VoiceChat\RTP.cs" />
+    <Compile Include="VoiceChat\Server.cs" />
+    <Compile Include="VoiceChat\TcpProtocols.cs" />
+    <Compile Include="VoiceChat\Timer.cs" />
+    <Compile Include="VoiceChat\Utils.cs" />
+    <Compile Include="Naudio\VoiceChatContainer.xaml.cs">
+      <DependentUpon>VoiceChatContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VoiceChat\WaveFile.cs" />
+    <Compile Include="VoiceChat\Win32.cs" />
+    <Compile Include="VoiceChat\WinSound.cs" />
+    <Compile Include="WebConnection\Channel.cs" />
+    <Compile Include="WebConnection\ChannelInfo.cs" />
+    <Compile Include="WebConnection\WebClient.cs" />
+    <Compile Include="WindowFrame\FrameControl.xaml.cs">
+      <DependentUpon>FrameControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFrame\WindowFrameContainer.xaml.cs">
+      <DependentUpon>WindowFrameContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Resize\ResizablePanel.cs" />
+    <Compile Include="Windows\Resize\Resizer.cs" />
+    <Compile Include="Windows\Window.cs" />
+    <Compile Include="Window\WindowResizer.cs" />
+    <Page Include="Chat\ChatItemCollectionsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Chat\ChatItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentResize\ResizerStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ChatListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ChatListItemControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LeftSideMenuList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SideMenuControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\VoiceGroupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Page\ChatPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\InformationWindowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\OnlinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\VoicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Naudio\VoiceChatContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindowFrame\FrameControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFrame\WindowFrameContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Resize\ResizerStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Resource Include="Fonts\Font Awesome 5 Free-Regular-400.otf" />
+    <Resource Include="Fonts\Font Awesome 5 Free-Solid-900.otf" />
+    <Resource Include="Fonts\fontawesome-webfont.ttf" />
+    <Resource Include="Fonts\FontAwesome.ttf" />
+    <Resource Include="Fonts\FontAwesomes.otf" />
+    <Resource Include="Fonts\Lato-Black.ttf" />
+    <Resource Include="Fonts\Lato-BlackItalic.ttf" />
+    <Resource Include="Fonts\Lato-Bold.ttf" />
+    <Resource Include="Fonts\Lato-BoldItalic.ttf" />
+    <Resource Include="Fonts\Lato-Hairline.ttf" />
+    <Resource Include="Fonts\Lato-HairlineItalic.ttf" />
+    <Resource Include="Fonts\Lato-Heavy.ttf" />
+    <Resource Include="Fonts\Lato-HeavyItalic.ttf" />
+    <Resource Include="Fonts\Lato-Italic.ttf" />
+    <Resource Include="Fonts\Lato-Light.ttf" />
+    <Resource Include="Fonts\Lato-LightItalic.ttf" />
+    <Resource Include="Fonts\Lato-Medium.ttf" />
+    <Resource Include="Fonts\Lato-MediumItalic.ttf" />
+    <Resource Include="Fonts\Lato-Regular.ttf" />
+    <Resource Include="Fonts\Lato-Semibold.ttf" />
+    <Resource Include="Fonts\Lato-SemiboldItalic.ttf" />
+    <Resource Include="Fonts\Lato-Thin.ttf" />
+    <Resource Include="Fonts\Lato-ThinItalic.ttf" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Background\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NSpeex_LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Fp5aDYs - Imgur.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="discord-rpc-w32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 套件。請啟用 NuGet 套件還原，以下載該套件。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.29\build\ILMerge.props'))" />
+  </Target>
+</Project>
