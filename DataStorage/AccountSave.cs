@@ -15,9 +15,9 @@ namespace ReDive_Bot.library.PrincessDataBase
         private static string TargetFile = "Library/Princesses.json";
         static AccountSave()
         {
-            if (StorageData.CheckFileExists(TargetFile))
+            if (StorageData<AccountModel>.CheckFileExists(TargetFile))
             {
-                Account = StorageData.LoadAccount(TargetFile).ToList();
+                Account = StorageData<AccountModel>.LoadAccount(TargetFile).ToList();
             }
             else
             {
@@ -27,7 +27,7 @@ namespace ReDive_Bot.library.PrincessDataBase
         }
         public static void SaveAccountContainer()
         {
-            StorageData.SaveAccount(Account, TargetFile);
+            StorageData<AccountModel>.SaveAccount(Account, TargetFile);
         }
         public static AccountModel GetAccount(ulong id)
         {

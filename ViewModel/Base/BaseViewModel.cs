@@ -10,13 +10,11 @@ namespace Endless_Development_Project_Studio
     public class BaseViewModel : INotifyPropertyChanged
     {
 
-
-        public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
-
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string name)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         protected async Task RunCommand(System.Linq.Expressions.Expression<Func<bool>> updatingFlag, Func<Task> action)

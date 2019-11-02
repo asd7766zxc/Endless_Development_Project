@@ -1,0 +1,38 @@
+﻿<Window x:Class="Endless_Development_Project_Studio.ServerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Endless_Development_Project_Studio"
+        xmlns:local1="clr-namespace:Endless_Development_Project_Studio.ServerOutputControl"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="#AA1e1e1e"
+        Title="ServerWindow" Height="450" Width="800">
+   
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="2"
+            CaptionHeight="25"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            />
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition />
+            <RowDefinition Height="18"/>
+        </Grid.RowDefinitions>
+        <Border Background="#007ACC" />
+        <TextBlock Text="Server Console" Foreground="White" FontSize="13" FontFamily="{StaticResource LatoRegular}" Margin="5 0"  VerticalAlignment="Center" />
+        <local1:OutPutControl x:Name="P"  Grid.Row="1"/>
+        <Grid Grid.Row="2">
+            
+            <TextBox x:Name="Input" Grid.Row="2" Foreground="White" FontSize="13" FontFamily="{StaticResource LatoRegular}"  VerticalAlignment="Center" Style="{DynamicResource RegularTextBoxStyle}" KeyDown="TextBox_KeyDown" />
+
+           
+        
+        </Grid>
+    </Grid>
+</Window>

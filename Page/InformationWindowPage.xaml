@@ -11,6 +11,9 @@
 
     <Grid>
         <Border Grid.Row="1" Margin="10" Background="#252526">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0.1" />
+            </Border.Effect>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25" />
@@ -18,25 +21,23 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Border Background="#202225" >
+                  
+                </Border>
+                <Border x:Name="Info" Background="#03A9F4" HorizontalAlignment="Right" Height="10"  Margin="0 0 10 0" VerticalAlignment="Center" Width="10">
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="0.2" />
                     </Border.Effect>
-                </Border>
-                <Rectangle x:Name="Info" Fill="#03A9F4" HorizontalAlignment="Right" Height="10"  Margin="0 0 10 0" VerticalAlignment="Center" Width="10">
-                    <Rectangle.Effect>
-                        <DropShadowEffect ShadowDepth="0.2" />
-                    </Rectangle.Effect>
 
-                    <Rectangle.RenderTransform>
+                    <Border.RenderTransform>
                         <RotateTransform CenterX="5" CenterY="5" Angle="0"/>
-                    </Rectangle.RenderTransform>
+                    </Border.RenderTransform>
 
-                    <Rectangle.Triggers>
+                    <Border.Triggers>
                         <EventTrigger RoutedEvent="Unloaded">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation
-            Storyboard.TargetProperty="(Rectangle.RenderTransform).(RotateTransform.Angle)"
+            Storyboard.TargetProperty="(Border.RenderTransform).(RotateTransform.Angle)"
             To="360" Duration="0:0:2" RepeatBehavior="Forever">
                                         <DoubleAnimation.EasingFunction>
                                             <CircleEase EasingMode="EaseInOut"/>
@@ -45,8 +46,8 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                    </Rectangle.Triggers>
-                </Rectangle>
+                    </Border.Triggers>
+                </Border>
                 <Border Grid.Row="1" Background="#03A9F4" >
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="0.2" />
@@ -61,9 +62,9 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Canvas>
-                            <Label Name="Protan" Content="" FontSize="10" Foreground="White" FontFamily="{StaticResource LatoThin}" Width="Auto" Height="20" />
+                            <Label Name="Protan" Content="" FontSize="11" Foreground="White" FontFamily="{StaticResource LatoRegular}" Width="Auto" Height="25" />
                         </Canvas>
-                        <TextBlock Margin="5" Name="UpdateContent" TextWrapping="WrapWithOverflow" FontSize="12" Foreground="White" Grid.Row="1" />
+                        <TextBlock Margin="5" FontFamily="{StaticResource LatoRegular}" Name="UpdateContent" TextWrapping="WrapWithOverflow" FontSize="12" Foreground="White" Grid.Row="1" />
 
                     </Grid>
                 </Border>

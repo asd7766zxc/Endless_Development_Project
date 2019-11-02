@@ -19,6 +19,7 @@ namespace Endless_Development_Project_Studio
 
             this.Exit += App_Exit;
         }
+       
 
         private void App_Exit(object sender, ExitEventArgs e)
         {

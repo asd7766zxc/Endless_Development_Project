@@ -9,6 +9,8 @@ using System.Windows;
 using System.Linq;
 using System.Windows.Input;
 using System.IO;
+using Endless_Development_Project_Studio.Managers;
+using Endless_Development_Project_Studio.Events;
 
 namespace Chat_Pro_NCP
 {
@@ -24,6 +26,7 @@ namespace Chat_Pro_NCP
 
         public ICommand NoAccount { get; set; }
 
+
         public LoginViewModel()
         {
             LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
@@ -34,17 +37,22 @@ namespace Chat_Pro_NCP
             await RunCommand(() => this.LoginIsRunning, async () => {
 
                 LoginButtonContent = "Login...";
+                OnPropertyChanged("LoginButtonContent");
+                var email = this.Email;
+                var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
+                DataManagers.account.account = email;
+                DataManagers.account.AccountReady = false;
+                DataManagers.account.password = pass;
 
-            var email = this.Email;
-            var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
-                ConnectToSQL cts = new ConnectToSQL();
-        
-                    cts.Connect("cr-reports.ddns.net", 1433, "f");
-                if (cts.GetServerData(int.Parse(email)).FirstOrDefault().Password==pass)
+                var Client = DataBaseManager.Instance.DataBaseClient;
+                Client.Connect("cr-reports.ddns.net", 1433, "f");
+                var Data = Client.GetServerDataByAccount(email).FirstOrDefault();
+                if (Data.Password == pass)
                 {
-                    SocketStatus.Account = cts.GetServerData(int.Parse(email)).FirstOrDefault();
-                    SocketStatus.UserName = cts.GetServerData(int.Parse(email)).FirstOrDefault().Name;
-                    SocketStatus.L(cts.GetServerData(int.Parse(email)).FirstOrDefault().Name);
+                    DataManagers.account.Complex = Data;
+                    DataManagers.account.UserID = Data.id.ToString();
+                    DataManagers.account.UserName = Data.Name;
+                    StaticEvent.OnLoginEvent();
                 }
 
                 if (!Directory.Exists(@"C:\EDP\LocalData"))

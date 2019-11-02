@@ -22,6 +22,16 @@ namespace Endless_Development_Project_Studio.SQL
 
         public string Online { get; set; }
 
+        public int OnlineNum { get; set; }
+
+        public int InVoiceChat { get; set; }
+
+        public int PermissionLevel { get; set; }
+
+        public int identityLevel { get; set; }
+
+        public string Channel { get; set; }
+
         public string fullinfo
         {
             get

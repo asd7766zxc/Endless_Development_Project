@@ -10,19 +10,20 @@ using System.Threading.Tasks;
 
 namespace ReDive_Bot.DataStorage
 {
-    public static class StorageData
+    public class StorageData<T>
     {
-        public static void SaveAccount(IEnumerable<AccountModel> princesses, string TargetFile)
+        public static StorageData<T> Instance => new StorageData<T>();
+        public static void SaveAccount(IEnumerable<T> princesses, string TargetFile)
         {
             if (!Directory.Exists("Library")) Directory.CreateDirectory("Library");
             string jsonConvert = JsonConvert.SerializeObject(princesses, Formatting.Indented);
             File.WriteAllText(TargetFile, jsonConvert);
         }
-        public static IEnumerable<AccountModel> LoadAccount(string TargetFile)
+        public static IEnumerable<T> LoadAccount(string TargetFile)
         {
             if (!File.Exists(TargetFile)) return null;
             string jsonConvert = File.ReadAllText(TargetFile);
-            return JsonConvert.DeserializeObject<List<AccountModel>>(jsonConvert);
+            return JsonConvert.DeserializeObject<List<T>>(jsonConvert);
         }
         public static bool CheckFileExists(string TargetFile)
         {

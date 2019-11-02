@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using Endless_Development_Project_Studio.Connection;
 
 namespace Endless_Development_Project_Studio.SQL
 {
@@ -113,7 +114,7 @@ namespace Endless_Development_Project_Studio.SQL
         public List<dboReport> GetDataByAccount(string id, SqlConnection conn)
         {
             IDbConnection ics = conn;
-            return ics.Query<dboReport>($"select * from Users where Account = {id}").ToList();
+            return ics.Query<dboReport>($"select * from Users where CONVERT(VARCHAR, MailAddress) = '{id}'").ToList();
         }
         public bool CheckAccountExit(string Account, SqlConnection conn)
         {

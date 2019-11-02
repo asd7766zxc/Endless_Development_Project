@@ -1,0 +1,620 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OMCS.WPF</name>
+    </assembly>
+    <members>
+        <member name="T:OMCS.WPF.MicrophoneConnector">
+            <summary>
+            话筒连接器。通过该组件可以连接到对方的话筒，播放对方话筒捕获到的声音。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.MicrophoneConnector.BeginConnect(System.String)">
+            <summary>
+            尝试连接目标多媒体设备。如果多媒体设备未被授权、或多媒体管理器未成功初始化、或当前连接器正在工作、或目标多媒体设备已经被连接、或上次的连接尝试还未结束，则将抛出相应的异常。
+            </summary>       
+            <param name="destUserID">目标用户的UserID</param>
+        </member>
+        <member name="M:OMCS.WPF.MicrophoneConnector.Disconnect">
+            <summary>
+            与目标用户的多媒体设备断开连接，并释放通道。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.MicrophoneConnector.ChangeOwnerOutput(System.Boolean)">
+            <summary>
+            修改Owner的麦克风的输出控制。如果Owner方修改成功，将会触发本地的OwnerOutputChanged事件。
+            </summary>
+            <param name="output">是否输出音频</param>
+        </member>
+        <member name="E:OMCS.WPF.MicrophoneConnector.ConnectEnded">
+            <summary>
+            当连接目标多媒体设备的尝试（由BeginConnect发起）结束时，触发此事件。事件参数说明了连接的结果。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.MicrophoneConnector.Disconnected">
+            <summary>
+            当与目标多媒体设备的连接断开时，触发该事件。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.MicrophoneConnector.OwnerOutputChanged">
+            <summary>
+            当Owner音频输出控制改变时，触发此事件。【对应于Owner端的多媒体管理器的OutputAudio属性的修改】
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.MicrophoneConnector.Connected">
+            <summary>
+            与目标设备是否已连接？
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.MicrophoneConnector.MultimediaDeviceType">
+            <summary>
+            目标多媒体设备的类型。
+            </summary>
+        </member>
+        <!-- 对于成员“P:OMCS.WPF.MicrophoneConnector.OwnerID”忽略有格式错误的 XML 注释 -->
+        <member name="P:OMCS.WPF.MicrophoneConnector.WaitOwnerOnlineSpanInSecs">
+            <summary>
+            当调用BeginConnect连接Owner的设备时，如果Owner不在线，则等待对方上线的最长时间。如果超过这个时间，owner还没连接上来，则BeginConnect的结果仍然为TargetUserOffline。 
+            单位：秒。默认值0。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.MicrophoneConnector.OwnerOutput">
+            <summary>
+            Owner是否输出了音频。【对应于Owner端的多媒体管理器的OutputAudio属性】
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.MicrophoneConnector.Mute">
+            <summary>
+            是否静音。默认值false。
+            </summary>
+        </member>
+        <member name="T:OMCS.WPF.DynamicCameraConnector">
+            <summary>
+            动态摄像头连接器。可以动态修改绘制的面板。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.BeginConnect(System.String)">
+            <summary>
+            尝试连接目标多媒体设备。如果多媒体设备未被授权、或多媒体管理器未成功初始化、或当前连接器正在工作、或目标多媒体设备已经被连接、或上次的连接尝试还未结束，则将抛出相应的异常。
+            </summary>       
+            <param name="destUserID">目标用户的UserID</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.Disconnect">
+            <summary>
+            与目标用户的多媒体设备断开连接，并释放通道。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.GetCurrentImage">
+            <summary>
+            获取当前正在绘制的图像。
+            </summary>      
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.SetViewer(System.Windows.Controls.DockPanel)">
+            <summary>
+            设置要显示视频的控件。必须要在UI线程中调用该方法。
+            </summary>
+            <param name="panel">要绘制视频的控件。可以为null。</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.GetVideoQuality">
+            <summary>
+            获取当前视频的编码质量。0~31，数值越小越清晰。
+            </summary>       
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.ChangeOwnerCameraVideoSize(System.Drawing.Size)">
+            <summary>
+            修改Owner的摄像头的采集分辨率。如果其摄像头不支持该分辨率，则将切换到最接近指定值的分辨率上。如果Owner方修改成功，将会触发本地的OwnerCameraVideoSizeChanged事件。
+            </summary>
+            <param name="newSize">新的采集分辨率</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.ChangeOwnerCameraVideoSize(System.Int32)">
+            <summary>
+            修改Owner的摄像头的采集分辨率。如果其摄像头不支持该分辨率，则将切换到最接近指定值的分辨率上。如果Owner方修改成功，将会触发本地的OwnerCameraVideoSizeChanged事件。
+            </summary>
+            <param name="widthAddHeight">新的采集分辨率的宽和高之和。比如分辨率为（320*240），则该参数为320+240=560</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.ChangeOwnerOutput(System.Boolean)">
+            <summary>
+            修改Owner的摄像头的输出控制。如果Owner方修改成功，将会触发本地的OwnerOutputChanged事件。
+            </summary>
+            <param name="output">是否输出视频</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.ChangeOwnerAutoAdjustCameraEncodeQuality(System.Boolean)">
+            <summary>
+            修改Owner的是否自动调节视频编码质量的控制。
+            </summary>
+            <param name="autoAdjust">是否自动调节</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicCameraConnector.ChangeOwnerCameraEncodeQuality(System.Int32)">
+            <summary>
+            修改Owner的视频编码质量。
+            </summary>
+            <param name="quality">编码质量。取值0~31，值越小，越清晰。</param>
+        </member>
+        <member name="E:OMCS.WPF.DynamicCameraConnector.OwnerCameraVideoSizeChanged">
+            <summary>
+            当检测到Owner的摄像头采集的视频大小发生变化时，触发此事件。参数为新的视频大小。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DynamicCameraConnector.OwnerOutputChanged">
+            <summary>
+            当Owner视频输出控制改变时，触发此事件。【对应于Owner端的多媒体管理器的OutputVideo属性的修改】
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DynamicCameraConnector.ConnectEnded">
+            <summary>
+            当连接目标多媒体设备的尝试（由BeginConnect发起）结束时，触发此事件。事件参数说明了连接的结果。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DynamicCameraConnector.Disconnected">
+            <summary>
+            当与目标多媒体设备的连接断开时，触发该事件。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicCameraConnector.Connected">
+            <summary>
+            与目标设备是否已连接？
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicCameraConnector.MultimediaDeviceType">
+            <summary>
+            目标多媒体设备的类型。
+            </summary>
+        </member>
+        <!-- 对于成员“P:OMCS.WPF.DynamicCameraConnector.OwnerID”忽略有格式错误的 XML 注释 -->
+        <member name="P:OMCS.WPF.DynamicCameraConnector.WaitOwnerOnlineSpanInSecs">
+            <summary>
+            当调用BeginConnect连接Owner的设备时，如果Owner不在线，则等待对方上线的最长时间。如果超过这个时间，owner还没连接上来，则BeginConnect的结果仍然为TargetUserOffline。 
+            单位：秒。默认值0。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicCameraConnector.AutoSynchronizeVideoToAudio">
+            <summary>
+            [从Guest的角度]如果连接了同一个Owner的摄像头和话筒，那么，CameraConnector在播放视频时是否自动与音频保持同步。默认值为true。可以在运行时动态修改。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicCameraConnector.OwnerOutput">
+            <summary>
+            Owner是否输出了视频。【对应于Owner端的多媒体管理器的OutputVideo属性】
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicCameraConnector.VideoSize">
+            <summary>
+            视频的尺寸。
+            </summary>
+        </member>
+        <member name="T:OMCS.WPF.WhiteBoardConnector">
+            <summary>
+            电子白板连接器。
+            (1)Owner必须在线上，才可以连接成功；但是Owner掉线并不影响白板的正常使用。
+            (2)支持掉线自动重连。  
+            </summary>
+            <summary>
+            WhiteBoardConnector
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.WhiteBoardConnector.BeginConnect(System.String)">
+            <summary>
+            尝试连接目标多媒体设备。如果多媒体设备未被授权、或多媒体管理器未成功初始化、或当前连接器正在工作、或目标多媒体设备已经被连接、或上次的连接尝试还未结束，则将抛出相应的异常。
+            </summary>       
+            <param name="destUserID">目标用户的UserID</param>
+        </member>
+        <member name="M:OMCS.WPF.WhiteBoardConnector.Disconnect">
+            <summary>
+            与目标用户的多媒体设备断开连接，并释放通道。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.WhiteBoardConnector.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.WhiteBoardConnector.ConnectEnded">
+            <summary>
+            当连接目标多媒体设备的尝试（由BeginConnect发起）结束时，触发此事件。事件参数说明了连接的结果。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.WhiteBoardConnector.Disconnected">
+            <summary>
+            当与目标多媒体设备的连接断开时，触发该事件。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.Connected">
+            <summary>
+            与目标设备是否已连接？
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.MultimediaDeviceType">
+            <summary>
+            目标多媒体设备的类型。
+            </summary>
+        </member>
+        <!-- 对于成员“P:OMCS.WPF.WhiteBoardConnector.OwnerID”忽略有格式错误的 XML 注释 -->
+        <member name="P:OMCS.WPF.WhiteBoardConnector.WaitOwnerOnlineSpanInSecs">
+            <summary>
+            当调用BeginConnect连接Owner的设备时，如果Owner不在线，则等待对方上线的最长时间。如果超过这个时间，owner还没连接上来，则BeginConnect的结果仍然为TargetUserOffline。 
+            单位：秒。默认值0。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.AutoReconnect">
+            <summary>
+            是否开启自动重连的功能。默认值为true。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.WatchingOnly">
+            <summary>
+            仅仅允许查看白板，但是不能进行操作。默认值为false。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.IsManager">
+            <summary>
+            是否为管理员身份。管理员的特殊权限：上传课件、打开课件、删除课件、翻页等。
+            </summary>      
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.BackImageOfPage">
+            <summary>
+            白板页的背景图片（比如，可以将课件转换成图片后，设置到该属性上）。
+            </summary>       
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.ContextMenuEnglish">
+            <summary>
+            右键菜单文字是否使用英语。
+            </summary>       
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.FocusOnNewViewByOther">
+            <summary>
+            如果他人新建了一个view，则自动选中该view，并调节滚动条使其在可视区域内。
+            </summary>       
+        </member>
+        <member name="P:OMCS.WPF.WhiteBoardConnector.DisplayPageBorder">
+            <summary>
+            是否显示白板页的边框。默认值：false。
+            </summary>       
+        </member>
+        <member name="T:OMCS.WPF.DynamicDesktopConnector">
+            <summary>
+            动态远程桌面连接器。可以动态修改绘制的面板。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.DynamicDesktopConnector.BeginConnect(System.String)">
+            <summary>
+            尝试连接目标多媒体设备。如果多媒体设备未被授权、或多媒体管理器未成功初始化、或当前连接器正在工作、或目标多媒体设备已经被连接、或上次的连接尝试还未结束，则将抛出相应的异常。
+            </summary>       
+            <param name="destUserID">目标用户的UserID</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicDesktopConnector.Disconnect">
+            <summary>
+            与目标用户的多媒体设备断开连接，并释放通道。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.DynamicDesktopConnector.SetViewer(System.Windows.Controls.DockPanel)">
+            <summary>
+            设置要显示视频的控件。必须要在UI线程中调用该方法。
+            </summary>
+            <param name="panel">要绘制视频的控件。可以为null。</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicDesktopConnector.GetCurrentImage">
+            <summary>
+            获取当前正在绘制的图像。
+            </summary>      
+        </member>
+        <member name="M:OMCS.WPF.DynamicDesktopConnector.GetVideoQuality">
+            <summary>
+            获取当前视频的编码质量。0~31，数值越小越清晰。
+            </summary>       
+        </member>
+        <member name="M:OMCS.WPF.DynamicDesktopConnector.ChangeOwnerOutput(System.Boolean)">
+            <summary>
+            修改Owner的桌面输出控制。如果Owner方修改成功，将会触发本地的OwnerOutputChanged事件。
+            </summary>
+            <param name="output">是否输出桌面</param>
+        </member>
+        <member name="M:OMCS.WPF.DynamicDesktopConnector.ChangeOwnerDesktopEncodeQuality(System.Int32)">
+            <summary>
+            修改Owner的桌面编码质量。
+            </summary>
+            <param name="quality">编码质量。取值0~31，值越小，越清晰。</param>
+        </member>
+        <member name="E:OMCS.WPF.DynamicDesktopConnector.OwnerDesktopSizeChanged">
+            <summary>
+            当检测到Owner的屏幕分辨率发生变化时，触发此事件。参数为新的分辨率。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DynamicDesktopConnector.OwnerOutputChanged">
+            <summary>
+            当Owner桌面图像输出控制改变时，触发此事件。【对应于Owner端的多媒体管理器的OutputDesktop属性的修改】
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicDesktopConnector.OwnerOutput">
+            <summary>
+            Owner是否输出了桌面图像。【对应于Owner端的多媒体管理器的OutputDesktop属性】
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicDesktopConnector.DesktopSize">
+            <summary>
+            远程桌面的尺寸。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DynamicDesktopConnector.ConnectEnded">
+            <summary>
+            当连接目标多媒体设备的尝试（由BeginConnect发起）结束时，触发此事件。事件参数说明了连接的结果。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DynamicDesktopConnector.Disconnected">
+            <summary>
+            当与目标多媒体设备的连接断开时，触发该事件。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicDesktopConnector.Connected">
+            <summary>
+            与目标设备是否已连接？
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicDesktopConnector.MultimediaDeviceType">
+            <summary>
+            目标多媒体设备的类型。
+            </summary>
+        </member>
+        <!-- 对于成员“P:OMCS.WPF.DynamicDesktopConnector.OwnerID”忽略有格式错误的 XML 注释 -->
+        <member name="P:OMCS.WPF.DynamicDesktopConnector.WaitOwnerOnlineSpanInSecs">
+            <summary>
+            当调用BeginConnect连接Owner的设备时，如果Owner不在线，则等待对方上线的最长时间。如果超过这个时间，owner还没连接上来，则BeginConnect的结果仍然为TargetUserOffline。 
+            单位：秒。默认值0。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DynamicDesktopConnector.WatchingOnly">
+            <summary>
+            是否仅仅允许查看远程桌面，但是不能进行操作。默认值为true。
+            </summary>
+        </member>
+        <member name="T:OMCS.WPF.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:OMCS.WPF.CameraConnector">
+            <summary>
+            摄像头连接器。通过该组件可以连接到对方的摄像头，播放对方摄像头捕获到的视频。
+            </summary>
+            <summary>
+            CameraConnector
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.BeginConnect(System.String)">
+            <summary>
+            尝试连接目标多媒体设备。如果多媒体设备未被授权、或多媒体管理器未成功初始化、或当前连接器正在工作、或目标多媒体设备已经被连接、或上次的连接尝试还未结束，则将抛出相应的异常。
+            </summary>       
+            <param name="destUserID">目标用户的UserID</param>
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.Disconnect">
+            <summary>
+            与目标用户的多媒体设备断开连接，并释放通道。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.GetCurrentImage">
+            <summary>
+            获取当前正在绘制的图像。
+            </summary>      
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.GetVideoQuality">
+            <summary>
+            获取当前视频的编码质量。0~31，数值越小越清晰。
+            </summary>       
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.ChangeOwnerCameraVideoSize(System.Drawing.Size)">
+            <summary>
+            修改Owner的摄像头的采集分辨率。如果其摄像头不支持该分辨率，则将切换到最接近指定值的分辨率上。如果Owner方修改成功，将会触发本地的OwnerCameraVideoSizeChanged事件。
+            </summary>
+            <param name="newSize">新的采集分辨率</param>
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.ChangeOwnerCameraVideoSize(System.Int32)">
+            <summary>
+            修改Owner的摄像头的采集分辨率。如果其摄像头不支持该分辨率，则将切换到最接近指定值的分辨率上。如果Owner方修改成功，将会触发本地的OwnerCameraVideoSizeChanged事件。
+            </summary>
+            <param name="widthAddHeight">新的采集分辨率的宽和高之和。比如分辨率为（320*240），则该参数为320+240=560</param>
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.ChangeOwnerOutput(System.Boolean)">
+            <summary>
+            修改Owner的摄像头的输出控制。如果Owner方修改成功，将会触发本地的OwnerOutputChanged事件。
+            </summary>
+            <param name="output">是否输出视频</param>
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.ChangeOwnerAutoAdjustCameraEncodeQuality(System.Boolean)">
+            <summary>
+            修改Owner的是否自动调节视频编码质量的控制。
+            </summary>
+            <param name="autoAdjust">是否自动调节</param>
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.ChangeOwnerCameraEncodeQuality(System.Int32)">
+            <summary>
+            修改Owner的视频编码质量。
+            </summary>
+            <param name="quality">编码质量。取值0~31，值越小，越清晰。</param>
+        </member>
+        <member name="M:OMCS.WPF.CameraConnector.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.CameraConnector.OwnerCameraVideoSizeChanged">
+            <summary>
+            当检测到Owner的摄像头采集的视频大小发生变化时，触发此事件。参数为新的视频大小。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.CameraConnector.OwnerOutputChanged">
+            <summary>
+            当Owner视频输出控制改变时，触发此事件。【对应于Owner端的多媒体管理器的OutputVideo属性的修改】
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.CameraConnector.ConnectEnded">
+            <summary>
+            当连接目标多媒体设备的尝试（由BeginConnect发起）结束时，触发此事件。事件参数说明了连接的结果。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.CameraConnector.Disconnected">
+            <summary>
+            当与目标多媒体设备的连接断开时，触发该事件。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.CameraConnector.Connected">
+            <summary>
+            与目标设备是否已连接？
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.CameraConnector.MultimediaDeviceType">
+            <summary>
+            目标多媒体设备的类型。
+            </summary>
+        </member>
+        <!-- 对于成员“P:OMCS.WPF.CameraConnector.OwnerID”忽略有格式错误的 XML 注释 -->
+        <member name="P:OMCS.WPF.CameraConnector.WaitOwnerOnlineSpanInSecs">
+            <summary>
+            当调用BeginConnect连接Owner的设备时，如果Owner不在线，则等待对方上线的最长时间。如果超过这个时间，owner还没连接上来，则BeginConnect的结果仍然为TargetUserOffline。 
+            单位：秒。默认值0。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.CameraConnector.AutoSynchronizeVideoToAudio">
+            <summary>
+            [从Guest的角度]如果连接了同一个Owner的摄像头和话筒，那么，CameraConnector在播放视频时是否自动与音频保持同步。默认值为true。可以在运行时动态修改。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.CameraConnector.OwnerOutput">
+            <summary>
+            Owner是否输出了视频。【对应于Owner端的多媒体管理器的OutputVideo属性】
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.CameraConnector.VideoSize">
+            <summary>
+            视频的尺寸。
+            </summary>
+        </member>
+        <member name="T:OMCS.WPF.DesktopConnector">
+            <summary>
+            远程桌面连接器。
+            </summary>
+            <summary>
+            DesktopConnector
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.DesktopConnector.BeginConnect(System.String)">
+            <summary>
+            尝试连接目标多媒体设备。如果多媒体设备未被授权、或多媒体管理器未成功初始化、或当前连接器正在工作、或目标多媒体设备已经被连接、或上次的连接尝试还未结束，则将抛出相应的异常。
+            </summary>       
+            <param name="destUserID">目标用户的UserID</param>
+        </member>
+        <member name="M:OMCS.WPF.DesktopConnector.Disconnect">
+            <summary>
+            与目标用户的多媒体设备断开连接，并释放通道。
+            </summary>
+        </member>
+        <member name="M:OMCS.WPF.DesktopConnector.GetCurrentImage">
+            <summary>
+            获取当前正在绘制的图像。
+            </summary>      
+        </member>
+        <member name="M:OMCS.WPF.DesktopConnector.GetVideoQuality">
+            <summary>
+            获取当前视频的编码质量。0~31，数值越小越清晰。
+            </summary>       
+        </member>
+        <member name="M:OMCS.WPF.DesktopConnector.ChangeOwnerOutput(System.Boolean)">
+            <summary>
+            修改Owner的桌面输出控制。如果Owner方修改成功，将会触发本地的OwnerOutputChanged事件。
+            </summary>
+            <param name="output">是否输出桌面</param>
+        </member>
+        <member name="M:OMCS.WPF.DesktopConnector.ChangeOwnerDesktopEncodeQuality(System.Int32)">
+            <summary>
+            修改Owner的桌面编码质量。
+            </summary>
+            <param name="quality">编码质量。取值0~31，值越小，越清晰。</param>
+        </member>
+        <member name="M:OMCS.WPF.DesktopConnector.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DesktopConnector.OwnerDesktopSizeChanged">
+            <summary>
+            当检测到Owner的屏幕分辨率发生变化时，触发此事件。参数为新的分辨率。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DesktopConnector.OwnerOutputChanged">
+            <summary>
+            当Owner桌面图像输出控制改变时，触发此事件。【对应于Owner端的多媒体管理器的OutputDesktop属性的修改】
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DesktopConnector.OwnerAllowControlChanged">
+            <summary>
+            当Owner允许guest操作桌面的授权改变时，触发此事件。【对应于Owner端的多媒体管理器的AllowControl属性的修改】
+            </summary>        
+        </member>
+        <member name="P:OMCS.WPF.DesktopConnector.OwnerOutput">
+            <summary>
+            Owner是否输出了桌面图像。【对应于Owner端的多媒体管理器的OutputDesktop属性】
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DesktopConnector.DesktopSize">
+            <summary>
+            远程桌面的尺寸。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DesktopConnector.OwnerAllowControl">
+            <summary>
+            Owner是否允许操作桌面。【对应于Owner端的多媒体管理器的AllowControl属性】。注意其与WatchingOnly的区别：只有OwnerAllowControl为true的前提下，WatchingOnly的属性设置才有效果。
+            </summary>       
+        </member>
+        <member name="E:OMCS.WPF.DesktopConnector.ConnectEnded">
+            <summary>
+            当连接目标多媒体设备的尝试（由BeginConnect发起）结束时，触发此事件。事件参数说明了连接的结果。
+            </summary>
+        </member>
+        <member name="E:OMCS.WPF.DesktopConnector.Disconnected">
+            <summary>
+            当与目标多媒体设备的连接断开时，触发该事件。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DesktopConnector.Connected">
+            <summary>
+            与目标设备是否已连接？
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DesktopConnector.MultimediaDeviceType">
+            <summary>
+            目标多媒体设备的类型。
+            </summary>
+        </member>
+        <!-- 对于成员“P:OMCS.WPF.DesktopConnector.OwnerID”忽略有格式错误的 XML 注释 -->
+        <member name="P:OMCS.WPF.DesktopConnector.WaitOwnerOnlineSpanInSecs">
+            <summary>
+            当调用BeginConnect连接Owner的设备时，如果Owner不在线，则等待对方上线的最长时间。如果超过这个时间，owner还没连接上来，则BeginConnect的结果仍然为TargetUserOffline。 
+            单位：秒。默认值0。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DesktopConnector.BackColor">
+            <summary>
+            当没有视频绘制时，面板显示的颜色。默认值为Black。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DesktopConnector.WatchingOnly">
+            <summary>
+            是否仅仅允许查看远程桌面，但是不能进行操作。默认值为true。
+            </summary>
+        </member>
+        <member name="P:OMCS.WPF.DesktopConnector.ShowMouseCursor">
+            <summary> 
+            是否在远程桌面上显示Owner的鼠标光标。默认值为true。
+            </summary>
+        </member>
+    </members>
+</doc>

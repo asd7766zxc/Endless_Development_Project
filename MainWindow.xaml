@@ -10,15 +10,21 @@
         xmlns:local3="clr-namespace:Server_Restart_Final"
         mc:Ignorable="d"
         WindowStyle="None"
+        Icon="Image/cb1zb-qy5fx-001.ico"
         Background="Black"
         AllowsTransparency="True"
         Title="MainWindow" Height="700" Width="900">
     <Window.Resources>
         <Style TargetType="local:MainWindow">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="1" Opacity="0.5" />
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
-                        <Border Padding="{Binding OuterMarginSizeThickness,FallbackValue=10}">
+                        <Border Padding="{Binding OuterMarginSizeThickness,FallbackValue=0}">
                             <Grid>
                                 <Border x:Name="Container"
                                         Background="Transparent"
@@ -66,7 +72,7 @@
 
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
                                             <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
-                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}" Click="Button_Click_1" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
+                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
                                             <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
                                         </StackPanel>
                                     </Grid>
@@ -122,6 +128,47 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <SolidColorBrush x:Key="Button.MouseOver.Background3" Color="#AAFFFF"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border3" Color="#0000"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#0000"/>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#0DF5F5F5"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#AAFFFF"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#AAF5F5F5"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#AAFFFF"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <WindowChrome.WindowChrome>
         <WindowChrome
@@ -132,60 +179,40 @@
             />
     </WindowChrome.WindowChrome>
     <Border Background="#0000" Height="Auto" Width="Auto">
-        <Grid Name="MainGrid">
-
-            <Grid x:Name="ADS">
-
-                <Grid.Background>
-                    <ImageBrush ViewportUnits="Absolute" ImageSource="Image/Fp5aDYs - Imgur.jpg" Viewport="0 0 1920 1080" />
-                </Grid.Background>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid  Grid.Column="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Border Height="25" Background="#AA1e1e1e" VerticalAlignment="Top" >
-                            <Label Foreground="White" Content="Main Channel" />
-                        </Border>
-                        <Border Grid.Row="1" Margin="0 0 0 0" Height="Auto">
-                            <local1:ChatItemCollectionsControl x:Name="CCC" Width="auto" Height="{Binding ActualHeight,RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=Border}}" />
-                        </Border>
-                    </Grid>
-                    <Frame Grid.Column="2" x:Name="MainFrame" Content="{Binding CurrentPage,Converter={local1:ApplicationPageValueConverter}}"/>
-
-                    <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="450"/>
-                            <RowDefinition Height="25"/>
-                        </Grid.RowDefinitions>
-                      
-                        
-                                     <Frame Height="450" Grid.Row="1" x:Name="InformationWindowPageContainer" />
-                    </Grid>
-                    <Button Name="LogOutButton" Visibility="Collapsed" Height="40" BorderThickness="0" VerticalAlignment="Top" Foreground="White" Content="Logout" Background="Transparent" Style="{DynamicResource LogoutButton}" Click="Button_Click_2" />
-                </Grid>
+        <Grid>
+         
+            <Grid Background="#1e1e1e">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
               
+                <Border Grid.Column="1" BorderThickness="0" Background="#2f2f2f" BorderBrush="Transparent">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </Border.Effect>
+                </Border>
+                <Button Name="LogOutButton" Visibility="Collapsed" Height="40" BorderThickness="0" VerticalAlignment="Top" Foreground="White" Content="Logout" Background="Transparent" Style="{DynamicResource LogoutButton}" Click="Button_Click_2" />
+                <Grid Background="#2f2f2f">
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" >
+                        <StackPanel>
+                            <Button Height="50" Name="HomeButton" Content="&#xf015;" Style="{DynamicResource ButtonStyle1}" Click="HomeButton_Click" MouseEnter="Complex_MouseEnter" MouseLeave="Complex_MouseLeave" />
+                            <Button Height="50" Name="ChatButton" Content="&#xf086;" Style="{DynamicResource ButtonStyle1}" Click="ChatButton_Click" MouseEnter="Complex_MouseEnter" MouseLeave="Complex_MouseLeave" />
+                            <Button Height="50" Name="ServerButton" Content="&#xf233;" Style="{DynamicResource ButtonStyle1}" Click="ServerButton_Click" MouseEnter="Complex_MouseEnter" MouseLeave="Complex_MouseLeave" />
+                            <Button Height="50" Name="ModFolderButton" Content="&#xf07b;" Style="{DynamicResource ButtonStyle1}" Click="ModFolderButton_Click" MouseEnter="Complex_MouseEnter" MouseLeave="Complex_MouseLeave" />
+                            <Button Height="50" Name="GlobalComplexButton" Content="&#xf1ce;" Style="{DynamicResource ButtonStyle1}" Click="GlobalComplexButton_Click" MouseEnter="Complex_MouseEnter" MouseLeave="Complex_MouseLeave" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+                <Border Grid.Column="2" Margin="0 0 0 0" Height="Auto">
+                    <Frame Name="MainContainer" NavigationUIVisibility="Hidden"  Height="{Binding ActualHeight,RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=Border}}"/>
+                </Border>
+            
             </Grid>
-            <Grid Name="CACA">
-                <Frame Background="Transparent" Height="350" Width="200" MouseDown="VoicePageContainer_MouseDown" MouseUp="VoicePageContainer_MouseUp" MouseLeave="VoicePageContainer_MouseLeave" MouseMove="VoicePageContainer_MouseMove" Visibility="Visible" x:Name="VoicePageContainer" />
-            </Grid>
-            <Label Content="Copyright© 2019 asd7766zxc" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" />
-            <Label Content="Copyright© 2019 asd7766zxc" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" >
-                <Label.Effect>
-                    <BlurEffect/>
-                </Label.Effect>
-            </Label>
-
-
            
         </Grid>
+     
     </Border>
 </Window>
     

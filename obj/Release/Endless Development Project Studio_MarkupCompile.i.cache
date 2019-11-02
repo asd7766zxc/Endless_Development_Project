@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\App.xaml
-22-351099411
+37382656209
 1-630296797
-121980246394
-48523246186
-Chat\ChatItemCollectionsControl.xaml;Chat\ChatItemControl.xaml;ContentResize\ResizerStyle.xaml;Controls\ChatListControl.xaml;Controls\ChatListItemControl.xaml;Controls\LeftSideMenuList.xaml;Controls\SideMenuControl.xaml;Controls\VoiceGroupControl.xaml;MainWindow.xaml;Page\ChatPage.xaml;Page\InformationWindowPage.xaml;Page\LoginPage.xaml;Page\MainPage.xaml;Page\OnlinePage.xaml;Page\VoicePage.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Naudio\VoiceChatContainer.xaml;WindowFrame\FrameControl.xaml;WindowFrame\WindowFrameContainer.xaml;Windows\Resize\ResizerStyle.xaml;
+161111462587
+1681058699687
+Chat\ChatItemCollectionsControl.xaml;Chat\ChatItemControl.xaml;ContentResize\ResizerStyle.xaml;Controls\ChatListControl.xaml;Controls\ChatListItemControl.xaml;Controls\LeftSideMenuList.xaml;Controls\ServerSettingsControl.xaml;Controls\SideMenuControl.xaml;Controls\VoiceGroupControl.xaml;MainWindow.xaml;Pages\GlobalPage.xaml;Pages\HomePage.xaml;Pages\ModPage.xaml;Pages\Server\RemoteServerPage.xaml;Pages\Server\ServerManagerPage.xaml;Pages\ServerPage.xaml;Page\ChatPage.xaml;Page\InformationWindowPage.xaml;Page\LoginPage.xaml;Page\MainPage.xaml;Page\OnlinePage.xaml;Page\SyncUnitTestPage.xaml;Page\VoicePage.xaml;ServerOutputControl\OutPutControl.xaml;ServerOutputControl\OutPutItemControl.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Naudio\VoiceChatContainer.xaml;Styles\TextBox.xaml;WindowFrame\FrameControl.xaml;WindowFrame\WindowFrameContainer.xaml;Windows\LoginWindow.xaml;Windows\Resize\ResizerStyle.xaml;Window\CustomWindow\CustomWindow.xaml;Window\RemoteServer\RemoteServerWindow.xaml;Window\ServerWindow.xaml;
 
-True
+False
 

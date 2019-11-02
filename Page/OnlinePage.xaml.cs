@@ -24,6 +24,7 @@ namespace Endless_Development_Project_Studio
     {
         public OnlinePage()
         {
+            cts = new ConnectToSQL();
             cts.Connect("cr-reports.ddns.net", 1433, "f");
             this.Loaded += OnlinePage_Loaded;
             InitializeComponent();

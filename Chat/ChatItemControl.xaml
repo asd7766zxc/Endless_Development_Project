@@ -13,7 +13,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ContentControl}">
-                        <Border x:Name="background" BorderThickness="0 0.1 0 0" BorderBrush="#36393F" Background="#AD292929">
+                        <Border x:Name="background" BorderThickness="0 1 0 0" BorderBrush="#42454A" Background="#AA292929">
                             <Grid x:Name="container" Background="Transparent">
                                 <Grid.ColumnDefinitions>
 
@@ -27,10 +27,12 @@
                                         CornerRadius="{Binding ActualHeight,RelativeSource={RelativeSource Self}}">
                                         <Grid  Margin="0 0 0 0">
                                             <Border Name="Mask"
-                                                     Background="#FFFF"
                                                      BorderBrush="#4FC3F7"
-                                                    BorderThickness="1"
+                                                    BorderThickness="0"
                                                     CornerRadius="{Binding ActualHeight,RelativeSource={RelativeSource Self}}">
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="{Binding AvatarUrl,Converter={local:PathUrlToImageConverter}}" />
+                                                </Border.Background>
                                                 <Border.Effect>
                                                     <BlurEffect Radius="0.25" />
                                                 </Border.Effect>
@@ -44,15 +46,6 @@
                                                    FontSize="20"
                                                 Margin="0 0 0 0"
                                                    FontFamily="{StaticResource LatoRegular}">
-
-                                                <Viewbox>
-                                                    <StackPanel>
-                                                        <Image Source="{Binding AvatarUrl,Converter={local:PathUrlToImageConverter}}" />
-                                                        <StackPanel.OpacityMask>
-                                                            <VisualBrush Visual="{Binding ElementName=Mask}" />
-                                                        </StackPanel.OpacityMask>
-                                                    </StackPanel>
-                                                </Viewbox>
                                             </Button>
                                             
                                         </Grid>
@@ -71,9 +64,9 @@
                         </Border>
                         <ControlTemplate.Triggers>
 
-                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="background" Value="{StaticResource BackgroundTransparencyBrush}"/>
-                            </DataTrigger>
+                            </Trigger>
 
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="container" Value="{StaticResource Button.Disabled.Background}"/>

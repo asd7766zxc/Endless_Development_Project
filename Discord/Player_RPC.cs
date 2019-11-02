@@ -29,6 +29,7 @@ namespace Endless_Development_Project_Studio.Discord
         /// <param name="clientId"></param>
         private void Initialize(string clientId)
         {
+            
             handlers = new DiscordRpc.EventHandlers();
 
             handlers.readyCallback = ReadyCallback;
@@ -40,6 +41,7 @@ namespace Endless_Development_Project_Studio.Discord
             this.SetStatusBarMessage("Initialized.");
         }
         bool locker = true;
+        DateTime dt = new DateTime(2050,1,1,1,1,1,1);
         /// <summary>
         /// Update the presence status from what's in the UI fields.
         /// </summary>
@@ -50,15 +52,10 @@ namespace Endless_Development_Project_Studio.Discord
 
             if (locker)
             {
-                presence.startTimestamp = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000;
+                //ToDo: SomeThing Test
+                presence.startTimestamp = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000 ) / 10000000;
                 locker = false;
             }
-
-
-
-
-
-
 
             presence.largeImageKey = largeImageKey;
             presence.largeImageText = largeImageText;

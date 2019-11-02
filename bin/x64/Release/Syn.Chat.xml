@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syn.Chat</name>
+    </assembly>
+    <members>
+        <member name="T:Syn.Chat.ChatAgent">
+            <summary>
+            Simple class for adding Syn Web Assistant technology to ASP.NET websites.
+            </summary>
+        </member>
+        <member name="M:Syn.Chat.ChatAgent.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Syn.Chat.ChatAgent"/> class.
+            </summary>
+        </member>
+        <member name="M:Syn.Chat.ChatAgent.Process(System.Web.HttpRequest,System.Web.HttpResponse)">
+            <summary>
+            Processes the given request and writes the appropriate response.
+            </summary>
+            <param name="request">Html request to process.</param>
+            <param name="response">Html response to write to.</param>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.Bot">
+            <summary>
+            Instance of the Bot used by this Agent.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.Name">
+            <summary>
+            Name of the Web Assistant.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.Title">
+            <summary>
+            Web Assistant's title displayed below the Web Assistant's name.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.Intro">
+            <summary>
+            Default Web Assistant's message.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.InputText">
+            <summary>
+            Default text for input box.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.Footer">
+            <summary>
+            Text of the footer.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.FooterLink">
+            <summary>
+            Link to open when the footer text is clicked.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.ServiceUrl">
+            <summary>
+            Full URL path to the Chat Service.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.ResourceUrl">
+            <summary>
+            URL Directory location to look for image files and SIML package.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.PackageFileName">
+            <summary>
+            Package File name with extension. Example "Package.txt".
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.ChatAgent.RestartId">
+            <summary>
+            Value of the Get URL variable to reload the SIML Package.
+            </summary>
+        </member>
+        <member name="T:Syn.Chat.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.Properties.Resources.HtmlCode">
+             <summary>
+               Looks up a localized string similar to &lt;!--Property of Synthetic Intelligence Network ( Syn.co.in )--&gt;
+            &lt;div id=&quot;SynWeb&quot; class=&quot;Syn_Window ui-resizable Syn_Minimized Syn_DragHandle&quot; style=&quot;visibility: visible;&quot;&gt;
+                &lt;div class=&quot;Syn_ShadowElement&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;Syn_Agent&quot;&gt;
+                    &lt;div class=&quot;Syn_Title Syn_DragHandle&quot;&gt;
+                        &lt;div class=&quot;Syn_MoveButton&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;Syn_CloseButton&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;Syn_MaximizeButton&quot;&gt;&lt;/div&gt;
+                        &lt;div class=&quot;Syn_MinimizeButton&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;di [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Syn.Chat.Properties.Resources.Script">
+            <summary>
+              Looks up a localized string similar to (function(){function i(e,t){var n=document.createElement(&quot;script&quot;);n.src=e;n.onreadystatechange=n.onload=function(){var e=n.readyState;if(!t.done&amp;&amp;(!e||/loaded|complete/.test(e))){t.done=true;t()}};document.head.appendChild(n)}function s(e,t){var n=document.createElement(&quot;link&quot;);n.rel=&quot;stylesheet&quot;;n.href=e;n.onreadystatechange=n.onload=function(){var e=n.readyState;if(!t.done&amp;&amp;(!e||/loaded|complete/.test(e))){t.done=true;t()}};document.head.appendChild(n)}var e,t,n,r;n=function(){var e=document.createElemen [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Syn.Chat.Properties.Resources.Silver">
+            <summary>
+              Looks up a localized string similar to #SynWeb .Syn_Footer .Syn_Footer_Link{font-size:11px;margin:0;padding-left:5px;font-family:Arial,sans-serif;font-weight:700;text-decoration:none;color:rgba(0,0,0,0.58)}#SynWeb{width:380px;height:490px;font-family:&quot;Arial&quot;,sans-serif;z-index:9999;position:fixed;bottom:20px;right:20px;bottom:20px;right:20px;border-width:0}#SynWeb .Syn_Agent{background-color:#f6f6f6;position:absolute;left:0;top:0;width:100%;height:100%;border:0}#SynWeb html,#SynWeb body,#SynWeb div,#SynWeb span,#SynWeb applet,#SynWeb object,#Syn [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+    </members>
+</doc>

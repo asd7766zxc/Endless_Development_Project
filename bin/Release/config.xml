@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <IpAddressClient>1.172.26.6</IpAddressClient>
+  <IpAddressClient>1.172.43.97</IpAddressClient>
   <IPAddressServer>127.0.0.1</IPAddressServer>
   <PortClient>15624</PortClient>
   <PortServer>65536</PortServer>
   <SoundInputDeviceNameClient>VoiceMeeter Output (VB-Audio Vo</SoundInputDeviceNameClient>
-  <SoundOutputDeviceNameClient>VoiceMeeter VAIO3 Input (VB-Aud</SoundOutputDeviceNameClient>
+  <SoundOutputDeviceNameClient>喇叭 (2- USB Audio Device)</SoundOutputDeviceNameClient>
   <SoundInputDeviceNameServer />
   <SoundOutputDeviceNameServer />
   <SamplesPerSecondClient>44100</SamplesPerSecondClient>

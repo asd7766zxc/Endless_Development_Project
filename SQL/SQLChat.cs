@@ -7,6 +7,9 @@ using Dapper;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using Endless_Development_Project_Studio.Connection;
+using System.Runtime.CompilerServices;
+using Endless_Development_Project_Studio.Managers;
 
 namespace Endless_Development_Project_Studio.SQL.Chat
 {
@@ -14,29 +17,93 @@ namespace Endless_Development_Project_Studio.SQL.Chat
     {
         public delegate void MessageEventHandler(List<Message> msg);
         public event MessageEventHandler MessageEvent;
+        //public SynchronizeClient synchronizeClient = new SynchronizeClient();
         List<Message> messages = new List<Message>();
         DispatcherTimer Dt = new DispatcherTimer();
         public ConnectToSQL cts = new ConnectToSQL();
+        public ConnectToSQL ctas = new ConnectToSQL();
+        public ConnectToSQL ctbs = new ConnectToSQL();
         public void Connect()
         {
-           cts.Connect("cr-reports.ddns.net", 1433, "f");
+            SocketStatus.GlobalSynchronizeClient.LogEvent += SynchronizeClient_LogEvent;
+            cts.Connect("cr-reports.ddns.net", 1433, "f");
+            ctas.Connect("cr-reports.ddns.net", 1433, "f");
+            ctbs.Connect("cr-reports.ddns.net", 1433, "f");
+            Manual_Update();
             //TODO:  cts.Connect("192.168.1.103", 1433, "f");
-            Dt.Interval = TimeSpan.FromMilliseconds(500);
-            Dt.Tick += Dt_Tick;
-            Dt.Start();
+            //  Dt.Interval = TimeSpan.FromMilliseconds(500);
+            // Dt.Tick += Dt_Tick;
+            //Dt.Start();
+        }
+        public void Disconnect()
+        {
+            SocketStatus.GlobalSynchronizeClient.LogEvent -= SynchronizeClient_LogEvent;
+            cts.Disconnect();
+            ctas.Disconnect();
+            ctbs.Disconnect();
+            //TODO:  cts.Connect("192.168.1.103", 1433, "f");
+            //  Dt.Interval = TimeSpan.FromMilliseconds(500);
+            // Dt.Tick += Dt_Tick;
+            //Dt.Start();
+        }
+        private void Manual_Update()
+        {
+            Console.WriteLine();
+            foreach (var ch in DataManagers.account.Complex.Channel.Split(';'))
+            {
+                if (!string.IsNullOrEmpty(ch))
+                {
+                    var ID = int.Parse(ch);
+                    var ListChat = cts.GetServerListChannelData(ID).FirstOrDefault().Name;
+                    var Sample = cts.GetServerData(ListChat);
+                    if (messages != Sample)
+                    {
+                        messages = Sample;
+                        MessageEvent?.Invoke(messages);
+                    }
+                }
+            }
+          
+        }        
+        private void SynchronizeClient_LogEvent(object Log)
+        {
+            Task.Run(() =>
+            {
+                var Parameter = (string)Log;
+                var Command = Parameter.Split('|')[0];
+                if (Command == "U")
+                {
+                    var ID = int.Parse(Parameter.Split('|')[1]);
+                    var ListChat = ctas.GetServerListChannelData(ID).FirstOrDefault().Name;
+                    var Sample = ctas.GetServerData(ListChat);
+                    if (messages != Sample)
+                    {
+                        messages = Sample;
+                        MessageEvent?.Invoke(messages);
+                    }
+                }
+            });
         }
 
         private void Dt_Tick(object sender, EventArgs e)
         {
-            if (messages != cts.GetServerData())
-            {
-                messages = cts.GetServerData();
-                MessageEvent?.Invoke(messages);
-            }
+           // var Sample = cts.GetServerData();
+          //  if (messages != Sample)
+           // {
+           //     messages = Sample;
+           //     MessageEvent?.Invoke(messages);
+           // }
         }
         public void Send(Message msg)
         {
-            cts.SetServerData(msg);
+          //  cts.SetServerData(msg);
+        }
+        public void Send(Message msg,int ChannelID)
+        {
+            var ListChat = ctbs.GetServerListChannelData(ChannelID).FirstOrDefault().Name;
+            ctbs.SetServerData(msg, ListChat);
+
+            SocketStatus.GlobalSynchronizeClient.SendString($"Update|{DataManagers.account.UserName},{DataManagers.account.UserID},{ChannelID}");
         }
     }
     public class ConnectToSQL
@@ -45,43 +112,97 @@ namespace Endless_Development_Project_Studio.SQL.Chat
         public List<Message> Report = new List<Message>();
         DataAcess asc = new DataAcess();
 
+        public void Disconnect()
+        {
+            conn.Close();
+        }
         public void Connect(string Host, int port, string userid, string userpas)
         {
             conn = new SqlConnection($"Server={Host},{port}; initial catalog = chat_container; user id = {userid}; password = {userpas}");
             conn.Open();
         }
-
+       
         public void Connect(string Host, int port, string userid)
         {
             conn = new SqlConnection($"Server={Host},{port}; initial catalog = chat_container; user id = {userid}; password = uyliouphjytuupr");
             conn.Open();
         }
-        public List<Message> GetServerData()
+        public List<Message> GetServerData(string d, string ds, [CallerMemberName] string origin = "", [CallerFilePath]string filePath = "", [CallerLineNumber]int lineNumber = 0)
         {
+            Console.WriteLine("["+filePath+"] "+origin+" -> line: "+lineNumber);
             if (conn == null) return null;
 
             var report = asc.GetData(conn);
             return report;
         }
-        public void SetServerData(Message dboreport)
+        public void SetServerData(Message dboreport,string f, string d, [CallerMemberName] string origin = "", [CallerFilePath]string filePath = "", [CallerLineNumber]int lineNumber = 0)
         {
+            Console.WriteLine("[" + filePath + "] " + origin + " -> line: " + lineNumber);
             if (conn == null) return;
         
             asc.SetData(dboreport, conn,long.Parse(DateTime.Now.ToString("yyyyMMddHHmmssffff")));
         }
+        public List<Message> GetServerData(string Channel, [CallerMemberName] string origin = "", [CallerFilePath]string filePath = "", [CallerLineNumber]int lineNumber = 0)
+        {
+            Console.WriteLine("[" + filePath + "] " + origin + " -> line: " + lineNumber);
+            if (conn == null) return null;
 
+            var report = asc.GetDataTrigger(conn, Channel);
+            return report;
+        }
+        public List<Channel> GetServerListChannelData(int ChannelID, [CallerMemberName] string origin = "", [CallerFilePath]string filePath = "", [CallerLineNumber]int lineNumber = 0)
+        {
+            Console.WriteLine("[" + filePath + "] " + origin + " -> line: " + lineNumber);
+            if (conn == null) return null;
+
+            var report = asc.GetChannelListData(ChannelID,conn);
+            return report;
+        }
+        public void SetServerData(Message dboreport,string Channel, [CallerMemberName] string origin = "", [CallerFilePath]string filePath = "", [CallerLineNumber]int lineNumber = 0)
+        {
+            Console.WriteLine("[" + filePath + "] " + origin + " -> line: " + lineNumber);
+            if (conn == null) return;
+
+            asc.SetDataTrigger(dboreport, conn, long.Parse(DateTime.Now.ToString("yyyyMMddHHmmssffff")), Channel);
+        }
+
+    }
+    public class Channel
+    {
+        public int ChannelID { get; set; }
+        public string Name { get; set; }
+        public string Member { get; set; }
     }
     class DataAcess
     {
         public List<Message> GetData(SqlConnection conn)
         {
-            IDbConnection ics = conn;
+            IDbConnection ics = MultibleConnetion(conn);
             return ics.Query<Message>($"select * from ChatsA ORDER BY dshort ASC").ToList();
         }
         public void SetData(Message dbr, SqlConnection conn,long dshort)
         {
-            IDbConnection ics = conn;
+            IDbConnection ics = MultibleConnetion(conn);
             ics.Execute($"INSERT INTO ChatsA (id, Message, Date, Modify ,[user],Address,_short,userid,dshort) VALUES ('{dbr.id}', '{dbr.message}', '{dbr.Date}', '{dbr.Modify.ToString()}', '{dbr.user}','{dbr.Address}','{dbr._short}','{dbr.userid}',{dshort})");
+        }
+        public List<Message> GetDataTrigger(SqlConnection conn,string Channel)
+        {
+            IDbConnection ics = MultibleConnetion(conn);
+            return ics.Query<Message>($"select * from "+ Channel + " ORDER BY dshort ASC").ToList();
+        }
+        public async Task SetDataTrigger(Message dbr, SqlConnection conn, long dshort, string Channel)
+        {
+            IDbConnection ics = MultibleConnetion(conn);
+            ics.Execute($"INSERT INTO {Channel} (id, Message, Date, Modify ,[user],Address,_short,userid,dshort) VALUES ('{dbr.id}', '{dbr.message}', '{dbr.Date}', '{dbr.Modify.ToString()}', '{dbr.user}','{dbr.Address}','{dbr._short}','{dbr.userid}',{dshort})");
+        }
+        public List<Channel> GetChannelListData(int id, SqlConnection conn)
+        {
+            IDbConnection ics = MultibleConnetion(conn);
+            return ics.Query<Channel>($"select * from ChannelList where ChannelID = {id}").ToList();
+        }
+        public IDbConnection MultibleConnetion(IDbConnection Target)
+        {
+            return Target;
         }
     }
 }
