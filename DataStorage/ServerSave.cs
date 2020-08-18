@@ -17,11 +17,11 @@ namespace ReDive_Bot.library.PrincessDataBase
         {
             if (StorageData<ServerSettingsModel>.CheckFileExists(TargetFile))
             {
-                Settings = StorageData<ServerSettingsModel>.LoadAccount(TargetFile).ToList();
+                settings = StorageData<ServerSettingsModel>.LoadAccount(TargetFile).ToList();
             }
             else
             {
-                Settings = new List<ServerSettingsModel>();
+                settings = new List<ServerSettingsModel>();
                 SaveSettingsContainer();
             }
         }
@@ -29,13 +29,13 @@ namespace ReDive_Bot.library.PrincessDataBase
         {
             StorageData<ServerSettingsModel>.SaveAccount(Settings, TargetFile);
         }
-        public static ServerSettingsModel GetAccount(ulong id)
+        public static ServerSettingsModel GetSettings(ulong id)
         {
             var ResourcesTarget = from Target in Settings where Target.serverid == id select Target;
             var princess = ResourcesTarget.FirstOrDefault();
             if (princess == null)
             {
-                return null;
+                return CreateSettings(id);
             }
             return princess;
         }
@@ -57,8 +57,18 @@ namespace ReDive_Bot.library.PrincessDataBase
                 return false;
             }
         }
-        private static ServerSettingsModel CreateSettings(ServerSettingsModel model)
+        private static ServerSettingsModel CreateSettings(ulong id)
         {
+            var model = new ServerSettingsModel
+            {
+                Title = "None",
+                JarFile = "",
+                MaxRam = "-Xmx10240M",
+                MinRam = "-Xms1024M",
+                ChangeDate = DateTime.Now.ToString(),
+                serverid = id,
+                Parameter = "",
+            };
             Settings.Add(model);
             SaveSettingsContainer();
             return model;

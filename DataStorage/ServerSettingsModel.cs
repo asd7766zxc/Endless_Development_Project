@@ -8,15 +8,19 @@ namespace Endless_Development_Project_Studio.DataStorage
 {
     public class ServerSettingsModel
     {
-        public string servername { get; set; }
+        public string JarFile { get; set; }
+
+        public string MinRam { get; set; }
+
+        public string MaxRam { get; set; }
+
+        public string Parameter { get; set; }
+
+        public string ChangeDate { get; set; }
+
+        public string Title { get; set; }
 
         public ulong serverid { get; set; }
-
-        public string parameter { get; set; }
-
-        public int maxmemory { get; set; }
-
-        public int minmemory { get; set; }
 
         public string StartFolder { get; set; }
     }

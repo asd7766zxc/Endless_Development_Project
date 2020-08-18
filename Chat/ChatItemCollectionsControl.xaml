@@ -494,20 +494,45 @@
         </Style>
 
     </Page.Resources>
-    <Grid DataContext="{x:Static local:ChatCollectionsDesignModel.Instance}">
+    <Grid>
+
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="22" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ScrollViewer x:Name="SVroller" VerticalScrollBarVisibility="Hidden">
-            <ItemsControl Name="IC">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <local:ChatItemControl />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-        <TextBox Grid.Row="1" FontFamily="Leelawadee UI" BorderBrush="Transparent" Background="#36393F" Name="inputtb" Foreground="White" BorderThickness="1" FontSize="14" KeyDown="Inputtb_KeyDown" Grid.ColumnSpan="2" />
-    </Grid> 
+             <Grid DataContext="{x:Static local:ChatCollectionsDesignModel.Instance}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="22" />
+            </Grid.RowDefinitions>
+            <ScrollViewer VirtualizingStackPanel.IsVirtualizing="True" x:Name="SVroller" VerticalScrollBarVisibility="Hidden">
+                <ItemsControl Name="IC">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:ChatItemControl />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.Template>
+                        <ControlTemplate>
+                            <Border
+            BorderThickness="{TemplateBinding Border.BorderThickness}"
+            Padding="{TemplateBinding Control.Padding}"
+            BorderBrush="{TemplateBinding Border.BorderBrush}"
+            Background="{TemplateBinding Panel.Background}"
+            SnapsToDevicePixels="True">
+
+                                <ItemsPresenter
+                        SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                            </Border>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                </ItemsControl>
+            </ScrollViewer>
+            <TextBox Grid.Row="1" FontFamily="Leelawadee UI" BorderBrush="Transparent" Background="#CC1e1e1e" Name="inputtb" Foreground="White" BorderThickness="1" FontSize="14" KeyDown="Inputtb_KeyDown" Grid.ColumnSpan="2" />
+        </Grid>
+    </Grid>
 </Page>

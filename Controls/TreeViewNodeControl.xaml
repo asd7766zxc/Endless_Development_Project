@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Endless_Development_Project_Studio.Controls.TreeViewNodeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Endless_Development_Project_Studio.Controls"
+              xmlns:local1="clr-namespace:Server_Restart_Final"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="50">
+    <Grid Name="MG" Width="50" Height="50">
+        <Label Margin="30 50 -75 -40" Background="Black" Foreground="White" Name="ValueDisplay" Height="Auto" Width="Auto"  Content="" FontSize="10"/>
+
+        <Border  Background="Black"   Name="CaptionBorder" MouseDown="UserControl_MouseDown"  MouseLeave="UserControl_MouseLeave"  MouseMove="UserControl_MouseMove"   MouseUp="UserControl_MouseUp" >
+            <Border.RenderTransform>
+                <RotateTransform CenterX="25 " CenterY="25" Angle="45" />
+            </Border.RenderTransform>
+        </Border>
+        <Button Height="20" Width="20" Click="Button_Click_1" />
+    </Grid>
+</UserControl>

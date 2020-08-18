@@ -4,9 +4,107 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Endless_Development_Project_Studio.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             mc:Ignorable="d"
+             Height="{Binding CurrentHeight}"
+             Margin="10"
+             d:DesignHeight="310" d:DesignWidth="400">
+    <UserControl.Resources>
+
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Border x:Name="background" BorderThickness="0 1 0 0" BorderBrush="#731e1e1e" Background="#731e1e1e">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Background="#731e1e1e">
+                                    <Grid.InputBindings>
+                                        <MouseBinding MouseAction="LeftClick" Command="{Binding OpenSettigs}" />
+                                    </Grid.InputBindings>
+                                    <Border Opacity="{Binding SectionOpacity}" Height="50" Width="50" HorizontalAlignment="Left" Margin="25 0" Background="#42A5F5">
+                                        <Border.RenderTransform>
+                                            <RotateTransform  CenterX="25" CenterY="25" Angle="45"/>
+                                        </Border.RenderTransform>
+                                        <Border.Effect>
+                                            <DropShadowEffect Opacity="0.5" ShadowDepth="1" BlurRadius="10" />
+                                        </Border.Effect>
+                                    </Border>
+                                    <Label FontSize="23" Height="42" Margin="70 0 0 50"  Content="{Binding Title}" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                    <Label FontSize="13" Height="30" Margin="70 50 0 0" Content="{Binding ChangeDate}" FontFamily="{StaticResource LatoRegular}"  Foreground="#FF80CBC4" />
+                                </Grid>
+                                <Border BorderBrush="Transparent" Background="#42A5F5" Grid.Row="1"  >
+
+                                </Border>
+                                <StackPanel Grid.Row="2" Background="#AA323232" CanVerticallyScroll="True">
+                                    <Grid Margin="3"  Background="Transparent" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label FontSize="15" Height="30" Content="Java 參數" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                        <TextBox FontSize="15" VerticalContentAlignment="Center" Height="30" Grid.Column="1"  Text="{Binding Parameter}" BorderBrush="#42A5F5" BorderThickness="0.6" Background="#CC292929" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                    </Grid>
+                                    <Grid Margin="3"  Background="Transparent" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label FontSize="15" Height="30" Content="最大記憶體值" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                        <TextBox FontSize="15" VerticalContentAlignment="Center" Height="30" Grid.Column="1" Text="{Binding MaxRam}" BorderBrush="#42A5F5" BorderThickness="0.6" Background="#CC292929" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                    </Grid>
+                                    <Grid Margin="3" Background="Transparent" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label FontSize="15" Height="30" Content="最小記憶體值" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                        <TextBox FontSize="15" VerticalContentAlignment="Center" Height="30" Grid.Column="1"  Text="{Binding MinRam}" BorderBrush="#42A5F5" BorderThickness="0.6" Background="#CC292929" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                    </Grid>
+                                    <Grid Margin="3" Background="Transparent" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition  />
+                                            <ColumnDefinition Width="25" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label FontSize="15" Height="30" Content="伺服器Jar檔" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                        <TextBox FontSize="15" VerticalContentAlignment="Center" Grid.Column="1" Height="30" Text="{Binding JarFile}" BorderBrush="#42A5F5" BorderThickness="0.6" Background="#CC292929" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                        <Button Command="{Binding OpenFolder}" Style="{StaticResource RegularButtonStyle}" FontFamily="{StaticResource FontAwesome}" Foreground="White" Content="&#xf07c;" Grid.Column="2" />
+                                    </Grid>
+                                    <Grid Margin="3" Background="Transparent" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label FontSize="15" Height="30" Content="標題" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                        <TextBox FontSize="15" VerticalContentAlignment="Center" Height="30" Grid.Column="1"  Text="{Binding Title}" BorderBrush="#42A5F5" BorderThickness="0.6" Background="#CC292929" FontFamily="{StaticResource LatoRegular}" Foreground="White" />
+                                    </Grid>
+                                    <Grid Margin="3" Background="Transparent" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition  />
+                                            <ColumnDefinition  />
+                                            <ColumnDefinition  />
+                                        </Grid.ColumnDefinitions>
+                                        <Button FontSize="15" Grid.Column="2" Width="40" Command="{Binding SaveSettings}" Style="{StaticResource RegularButtonStyle}" Content="儲存" BorderThickness="0 0 0 1" BorderBrush="#42A5F5" />
+                                        <Button  FontSize="15" Grid.Column="0"  Width="40" Command="{Binding Cancel}" Style="{StaticResource RegularButtonStyle}" Content="取消" BorderThickness="0 0 0 1" BorderBrush="#42A5F5" />
+                                        <Button  FontSize="15" Grid.Column="1" Width="40" Command="{Binding Start}" Style="{StaticResource RegularButtonStyle}" Content="執行" BorderThickness="0 0 0 1" BorderBrush="#42A5F5" />
+
+                                    </Grid>
+
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                       
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <ContentControl d:DataContext="{x:Static local:ServerSettingsControlDesign.Instance}" 
+                    Style="{StaticResource ContentStyle}"/>
 </UserControl>

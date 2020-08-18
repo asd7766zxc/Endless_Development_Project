@@ -35,6 +35,7 @@ using SharpDX.Direct2D1;
 using System.Windows.Interop;
 using Endless_Development_Project_Studio.SharpDXControl;
 using Endless_Development_Project_Studio.Managers;
+using Endless_Development_Project_Studio.TopTools;
 
 namespace Endless_Development_Project_Studio
 {
@@ -51,12 +52,23 @@ namespace Endless_Development_Project_Studio
         DispatcherTimer DTS = new DispatcherTimer();
         public MainWindow()
         {
+
+            Logger.ConsoleLogger.Log("MainWindow .ctor");
+
             int d = RenderCapability.Tier >> 16;
             this.DataContext = new WindowsVeiwModles(this);
             this.Loaded += MainWindow_Loaded;
             this.Closing += MainWindow_Closing;
+            PublicRevokeStaticEvent.PageEvent += PublicRevokeStaticEvent_PageEvent;
             InitializeComponent();
-            this.MainContainer.Content = PageManager.Instance.PageComplex["Home"];
+          //  this.MainContainer.Content = PageManager.Instance.PageComplex["Home"];
+        }
+
+        private void PublicRevokeStaticEvent_PageEvent(object parameter)
+        {
+            Logger.ConsoleLogger.Log("On Page Change");
+
+            MainContainer.Content = PageManager.Instance.PageComplex[(string)parameter];
         }
 
         private void DTS_Tick(object sender, EventArgs e)
@@ -68,6 +80,7 @@ namespace Endless_Development_Project_Studio
         ConnectToSQL cts;
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            Logger.ConsoleLogger.Log("Closing");
             if (SocketStatus.Account != null)
                 cts.SetPlayerOffline(SocketStatus.Account);
             if (SocketStatus.voice_Client.voicePage != null)
@@ -78,9 +91,7 @@ namespace Endless_Development_Project_Studio
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
-           
-
+            Logger.ConsoleLogger.Log("MainWindow_Loaded");
             SocketStatus.LoginComplect += SocketStatus_LoginComplect;
             //var Obj = new FrameControl(ADS,new SyncUnitTestPage(),"From1");
              //Obj.Height = 500;
@@ -101,14 +112,15 @@ namespace Endless_Development_Project_Studio
         {
             Dispatcher.Invoke(() =>
             {
+                Logger.ConsoleLogger.Log("LoginComplect");
                 Task.Run(() => { SocketStatus.GlobalSynchronizeClient.Setup(); });
-                LogOutButton.Visibility = Visibility.Visible;
+                //LogOutButton.Visibility = Visibility.Visible;
                 Title = "EDP - " + (string)Parameter;
                 cts = new ConnectToSQL();
-               // SocketStatus.player_RPC.initialize();
+                //SocketStatus.player_RPC.initialize();
                 Name = (string)Parameter;
-               // SocketStatus.player_RPC.UpdatePresence("edp", File.ReadAllText(@"C:\EDP\Build.json").Split('|')[1], "edp-smalllogo",(string)Parameter);
-                 cts.Connect("cr-reports.ddns.net", 1433, "f");
+                //SocketStatus.player_RPC.UpdatePresence("edp", File.ReadAllText(@"C:\EDP\Build.json").Split('|')[1], "edp-smalllogo",(string)Parameter);
+                cts.Connect("cr-reports.ddns.net", 1433, "f");
                 //TODO:cts.Connect("192.168.1.103", 1433, "f");
                 cts.SetPlayerOnline(SocketStatus.Account);
                 SocketStatus.GlobalSynchronizeClient.Login(SocketStatus.Account);
@@ -131,27 +143,27 @@ namespace Endless_Development_Project_Studio
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            this.MainContainer.Content = PageManager.Instance.PageComplex["Home"];
+            //this.MainContainer.Content = PageManager.Instance.PageComplex["Home"];
         }
 
         private void ChatButton_Click(object sender, RoutedEventArgs e)
         {
-            this.MainContainer.Content = PageManager.Instance.PageComplex["Chat"];
+            //this.MainContainer.Content = PageManager.Instance.PageComplex["Chat"];
         }
 
         private void ServerButton_Click(object sender, RoutedEventArgs e)
         {
-            this.MainContainer.Content = PageManager.Instance.PageComplex["Server"];
+        //    this.MainContainer.Content = PageManager.Instance.PageComplex["Server"];
         }
 
         private void ModFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            this.MainContainer.Content = PageManager.Instance.PageComplex["Mod"];
+          //  this.MainContainer.Content = PageManager.Instance.PageComplex["Mod"];
         }
 
         private void GlobalComplexButton_Click(object sender, RoutedEventArgs e)
         {
-            this.MainContainer.Content = PageManager.Instance.PageComplex["Global"];
+            //this.MainContainer.Content = PageManager.Instance.PageComplex["Global"];
         }
         Dictionary<string, string> NameComplex = new Dictionary<string, string>();
         private void Complex_MouseEnter(object sender, MouseEventArgs e)
@@ -162,5 +174,6 @@ namespace Endless_Development_Project_Studio
         {
 
         }
+        
     }
 }

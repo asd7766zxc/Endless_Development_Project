@@ -128,6 +128,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.DirectSound.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualC" />
     <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
@@ -208,9 +211,21 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.3.0\lib\net46\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
@@ -289,6 +304,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -296,6 +314,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TableDependency.SqlClient, Version=8.5.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlTableDependency.8.5.8\lib\net451\TableDependency.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -319,6 +340,7 @@
     <Compile Include="Chat\ChatItemViewModel.cs" />
     <Compile Include="Chat\PathUrlToImageConverter.cs" />
     <Compile Include="Connection\AppClients\Client.cs" />
+    <Compile Include="Connection\AsyncConnection\AsyncClient.cs" />
     <Compile Include="Connection\CheckClient.cs" />
     <Compile Include="Connection\MainClient.cs" />
     <Compile Include="Connection\ClientController.cs" />
@@ -329,12 +351,34 @@
     <Compile Include="Containers\WindowsContainerList.cs" />
     <Compile Include="ContentResize\ResizablePanel.cs" />
     <Compile Include="ContentResize\Resizer.cs" />
+    <Compile Include="Controls\BindableSelectedItemBehavior.cs" />
     <Compile Include="Controls\ChatListControl.xaml.cs" />
     <Compile Include="Controls\ChatListItemControl.xaml.cs" />
+    <Compile Include="Controls\Converter.cs" />
+    <Compile Include="Controls\CPB.cs" />
+    <Compile Include="Controls\FileViewControl.xaml.cs">
+      <DependentUpon>FileViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HTIC.cs" />
     <Compile Include="Controls\LeftSideMenuList.xaml.cs">
       <DependentUpon>LeftSideMenuList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ServerSectionCache.cs" />
+    <Compile Include="Controls\ServerSettingsControl.xaml.cs">
+      <DependentUpon>ServerSettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ServerSettingsControlViewModel.cs" />
     <Compile Include="Controls\SideMenuControl.xaml.cs" />
+    <Compile Include="Controls\TopCoverLoadingControl.cs" />
+    <Compile Include="Controls\TopCoverLoadingControl.xaml.cs">
+      <DependentUpon>TopCoverLoadingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TreeViewControl.xaml.cs">
+      <DependentUpon>TreeViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TreeViewNodeControl.xaml.cs">
+      <DependentUpon>TreeViewNodeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\VoiceGroupControl.xaml.cs">
       <DependentUpon>VoiceGroupControl.xaml</DependentUpon>
     </Compile>
@@ -344,13 +388,48 @@
     <Compile Include="DataStorage\AccountSave.cs" />
     <Compile Include="DataStorage\ServerSettingsModel.cs" />
     <Compile Include="DataStorage\StorageData.cs" />
+    <Compile Include="DialogSystem\LoadingDialog.xaml.cs">
+      <DependentUpon>LoadingDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Discord\Discord.RPC.cs" />
     <Compile Include="Discord\Player_RPC.cs" />
+    <Compile Include="EDP-GUI\ButtonControl.xaml.cs">
+      <DependentUpon>ButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EDP-GUI\ButtonControlViewModel.cs" />
+    <Compile Include="EDP-GUI\RelayCommands.cs" />
+    <Compile Include="EDP-GUI\SideButtonMenu.xaml.cs">
+      <DependentUpon>SideButtonMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Events\ReceiveMessageEventHandler.cs" />
     <Compile Include="Events\StaticEvent.cs" />
     <Compile Include="Expressions\ExpressionHelpers.cs" />
+    <Compile Include="FileTransfer\FileTransferUI\TransferItemCollectionsDesignModel.cs" />
+    <Compile Include="FileTransfer\FileTransferUI\TransferItemCollectionsViewModel.cs" />
+    <Compile Include="FileTransfer\FileTransferUI\TransferItemCollectionsControl.xaml.cs">
+      <DependentUpon>TransferItemCollectionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileTransfer\FileTransferUI\TransferItemControl.xaml.cs">
+      <DependentUpon>TransferItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileTransfer\FileTransferUI\TransferItemDesignModel.cs" />
+    <Compile Include="FileTransfer\FileTransferUI\TransferItemViewModel.cs" />
+    <Compile Include="FileTransfer\NetworkTransfer\Headers.cs" />
+    <Compile Include="FileTransfer\NetworkTransfer\Listener.cs" />
+    <Compile Include="FileTransfer\NetworkTransfer\PacketWriter.cs" />
+    <Compile Include="FileTransfer\NetworkTransfer\TransferClient.cs" />
+    <Compile Include="FileTransfer\NetworkTransfer\TransferQueue.cs" />
+    <Compile Include="FileTransfer\TransferServer.cs" />
+    <Compile Include="Helpers\TeeViewHelper.cs" />
+    <Compile Include="Helpers\TreeView\Node.cs" />
+    <Compile Include="Pages\GlobalLockPage.xaml.cs">
+      <DependentUpon>GlobalLockPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\DirectSoundHelper.cs" />
     <Compile Include="Helpers\ProcessHelper.cs" />
+    <Compile Include="Logger\ConsoleLogger.cs" />
+    <Compile Include="Logger\ConsoleOuputHandler.cs" />
+    <Compile Include="Logger\DebuggerRedirectListener.cs" />
     <Compile Include="Managers\DataBaseManager.cs" />
     <Compile Include="Managers\DataManagers.cs" />
     <Compile Include="Managers\PageManager.cs" />
@@ -431,6 +510,13 @@
     <Compile Include="Page\VoicePage.xaml.cs">
       <DependentUpon>VoicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RenderBackground\BackgroundContainer.xaml.cs">
+      <DependentUpon>BackgroundContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RenderBackground\ChromaticraftColorGenerator.cs" />
+    <Compile Include="RenderBackground\Particle.cs" />
+    <Compile Include="RenderBackground\ParticleSystem.cs" />
+    <Compile Include="RenderBackground\ParticleSystemManager.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="ServerOutputControl\LogItemListDesignModel.cs" />
     <Compile Include="ServerOutputControl\OutPutControl.xaml.cs">
@@ -451,8 +537,26 @@
     <Compile Include="SQL\ConnectToSQL.cs" />
     <Compile Include="SQL\dboReport.cs" />
     <Compile Include="SQL\Message.cs" />
+    <Compile Include="SQL\Server\SqlNotificationDependency.cs" />
     <Compile Include="SQL\SQLChat.cs" />
     <Compile Include="SQL\SQLHelper.cs" />
+    <Compile Include="SQL\SqlNotificationDependency.cs" />
+    <Compile Include="TopTools\ChatControl.xaml.cs">
+      <DependentUpon>ChatControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TopTools\DatePickerControl.xaml.cs">
+      <DependentUpon>DatePickerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TopTools\PublicRevokeStaticEvent.cs" />
+    <Compile Include="TopTools\SideMenuControl.xaml.cs">
+      <DependentUpon>SideMenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TopTools\UserStatus.xaml.cs">
+      <DependentUpon>UserStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProgressBarControl.xaml.cs">
+      <DependentUpon>ProgressBarControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ChatListDesignModel.cs" />
     <Compile Include="ViewModel\ChatListItemDesignModel.cs" />
     <Compile Include="ViewModel\ChatlistItemViewModel.cs" />
@@ -530,7 +634,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\FileViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\LeftSideMenuList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ServerSettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -538,7 +650,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\TopCoverLoadingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TreeViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TreeViewNodeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\VoiceGroupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogSystem\LoadingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EDP-GUI\ButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EDP-GUI\SideButtonMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileTransfer\FileTransferUI\TransferItemCollectionsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FileTransfer\FileTransferUI\TransferItemControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GlobalLockPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -606,6 +754,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RenderBackground\BackgroundContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ServerOutputControl\OutPutControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -631,6 +783,26 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopTools\ChatControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopTools\DatePickerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopTools\SideMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopTools\UserStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProgressBarControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -718,6 +890,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Background\" />
+    <Folder Include="TCPClients\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -741,6 +914,51 @@
     <Content Include="discord-rpc-w32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\icons8-antivirus-48.png" />
+    <Resource Include="Images\icons8-automatic-48.png" />
+    <Resource Include="Images\icons8-c-drive-100 .png" />
+    <Resource Include="Images\icons8-c-drive-120.png" />
+    <Resource Include="Images\icons8-c-drive-64.png" />
+    <Resource Include="Images\icons8-c-drive-641.png" />
+    <Resource Include="Images\icons8-database-48.png" />
+    <Resource Include="Images\icons8-dll-48.png" />
+    <Resource Include="Images\icons8-documents-100.png" />
+    <Resource Include="Images\icons8-documents-64.png" />
+    <Resource Include="Images\icons8-exe-48.png" />
+    <Resource Include="Images\icons8-external-link.png" />
+    <Resource Include="Images\icons8-flag-2-20.png" />
+    <Resource Include="Images\icons8-flag-2-25.png" />
+    <Resource Include="Images\icons8-folder-100.png" />
+    <Resource Include="Images\icons8-folder-48.png" />
+    <Resource Include="Images\icons8-folder-64 %281%29.png" />
+    <Resource Include="Images\icons8-gear-outline-filled-100.png" />
+    <Resource Include="Images\icons8-index-48.png" />
+    <Resource Include="Images\icons8-info-48.png" />
+    <Resource Include="Images\icons8-info-96.png" />
+    <Resource Include="Images\icons8-java-48.png" />
+    <Resource Include="Images\icons8-job-48.png" />
+    <Resource Include="Images\icons8-json-48.png" />
+    <Resource Include="Images\icons8-lock-48.png" />
+    <Resource Include="Images\icons8-maximize-window-48.png" />
+    <Resource Include="Images\icons8-menu-40.png" />
+    <Resource Include="Images\icons8-opened-folder-48.png" />
+    <Resource Include="Images\icons8-opened-folder-64.png" />
+    <Resource Include="Images\icons8-protein-48.png" />
+    <Resource Include="Images\icons8-receive-file-100.png" />
+    <Resource Include="Images\icons8-server-48.png" />
+    <Resource Include="Images\icons8-server-96.png" />
+    <Resource Include="Images\icons8-services-48.png" />
+    <Resource Include="Images\icons8-settings-48.png" />
+    <Resource Include="Images\icons8-settings-500.png" />
+    <Resource Include="Images\icons8-settings-96.png" />
+    <Resource Include="Images\icons8-txt-48.png" />
+    <Resource Include="Images\icons8-winrar-100.png" />
+    <Resource Include="Images\icons8-xml-file-48.png" />
+    <Resource Include="Images\icons8-xml-transformer-48.png" />
+    <Resource Include="Images\icons8-zip-48.png" />
+    <Resource Include="Image\Konachan.com - 166206 sample_waifu2x_art_noise1_scale_tta_1.png" />
+    <Resource Include="Image\166206.jpg" />
+    <Resource Include="Image\Mounment-3.png" />
     <Resource Include="Image\cb1zb-qy5fx-001.ico" />
     <Resource Include="Image\cb7ob-tn0h6-001.ico" />
     <Resource Include="Image\Webp.net-resizeimage.png" />

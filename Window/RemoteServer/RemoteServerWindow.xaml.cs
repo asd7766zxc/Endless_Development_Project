@@ -1,5 +1,6 @@
 ﻿using Endless_Development_Project_Studio.Server;
 using Endless_Development_Project_Studio.ServerOutputControl;
+using NF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,25 +22,39 @@ namespace Endless_Development_Project_Studio
     /// </summary>
     public partial class RemoteServerWindow : Window
     {
-       
-        LogClient client = new LogClient();
+
+        TCPClient m_Client;
         public RemoteServerWindow()
         {
-            client.LogEvent += Client_LogEvent;
+            m_Client = new NF.TCPClient("192.168.1.101", 1523);
+            m_Client.DataReceived += new NF.TCPClient.DelegateDataReceived(OnClientDataReceived);
+          
             InitializeComponent();
             this.Loaded += ServerWindow_Loaded;
         }
 
+        private void OnClientDataReceived(TCPClient client, byte[] bytes)
+        {
+            string log = Encoding.UTF8.GetString(bytes);
+            if (log.StartsWith("C,"))
+            {
+                var color = log.Split('|')[0].Split(',')[1];
+                var time = log.Split('|')[1];
+                var type = log.Split('|')[2];
+
+                var result = log.Replace(log.Split('|')[0] + "|", "").Replace(log.Split('|')[1] + "|", "").Replace(log.Split('|')[2] + "|", "");
+                P.AddToOutput(color, time, result, type);
+            }
+        }
+
         private void ServerWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            client.Setup();
+            m_Client.Connect();
         }
 
         private void Client_LogEvent(object Log)
         {
-            string log = (string)Log;
-            if (log.Split('|')[0].Split(',')[0]=="C")
-            P.AddToOutput(log.Split('|')[0].Split(',')[1], log.Split('|')[1], log.Split('|')[2], log.Split('|')[3]);
+          
         }
 
         private void BaseServer_CloseEvent()
@@ -57,7 +72,7 @@ namespace Endless_Development_Project_Studio
             {
                 try
                 {
-                    client.SendString("s,"+Input.Text);
+                    m_Client.Send(Encoding.UTF8.GetBytes("s," + Input.Text));
                     Input.Text = "";
                 }
                 catch { }

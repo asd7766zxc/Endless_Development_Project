@@ -5,9 +5,17 @@ FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Developm
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\ContentResize\ResizerStyle.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\ChatListControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\ChatListItemControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\FileViewControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\LeftSideMenuList.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\ServerSettingsControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\SideMenuControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\TopCoverLoadingControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\VoiceGroupControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\DialogSystem\LoadingDialog.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\EDP-GUI\ButtonControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\EDP-GUI\SideButtonMenu.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\FileTransfer\FileTransferUI\TransferItemCollectionsControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\FileTransfer\FileTransferUI\TransferItemControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\MainWindow.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Pages\GlobalPage.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Pages\HomePage.xaml;;
@@ -22,6 +30,7 @@ FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Developm
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Page\OnlinePage.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Page\SyncUnitTestPage.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Page\VoicePage.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\RenderBackground\BackgroundContainer.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\ServerOutputControl\OutPutControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\ServerOutputControl\OutPutItemControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Styles\Buttons.xaml;;
@@ -29,11 +38,19 @@ FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Developm
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Styles\Fonts.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Naudio\VoiceChatContainer.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Styles\TextBox.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\TopTools\ChatControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\TopTools\DatePickerControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\TopTools\SideMenuControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\TopTools\UserStatus.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\UI\ProgressBarControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\WindowFrame\FrameControl.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\WindowFrame\WindowFrameContainer.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Windows\LoginWindow.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Windows\Resize\ResizerStyle.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Window\CustomWindow\CustomWindow.xaml;;
-FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Window\ServerWindow.xaml;;
 FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Window\RemoteServer\RemoteServerWindow.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Window\ServerWindow.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Pages\GlobalLockPage.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\TreeViewControl.xaml;;
+FC:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\Controls\TreeViewNodeControl.xaml;;
 

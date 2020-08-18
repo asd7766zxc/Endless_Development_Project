@@ -29,9 +29,9 @@ namespace Endless_Development_Project_Studio.Server
             StartUpFolder = startupfolder;
             ServerProcess = new Process();
             ServerStartInfo = new ProcessStartInfo();
-            ServerStartInfo.CreateNoWindow = false;
-            ServerStartInfo.Arguments = "/c "+ServerParameter;
-            ServerStartInfo.FileName = "cmd.exe";
+            ServerStartInfo.CreateNoWindow = true;
+            ServerStartInfo.Arguments = ServerParameter;
+            ServerStartInfo.FileName = "java";
             ServerStartInfo.RedirectStandardOutput = true;
             ServerStartInfo.RedirectStandardInput = true;
             ServerStartInfo.WorkingDirectory = startupfolder;
@@ -51,7 +51,7 @@ namespace Endless_Development_Project_Studio.Server
             
             ChildProcessTracker.AddProcess(ServerProcess);
             ID = ServerProcess.Id;
-            Console.WriteLine(ServerProcess.ProcessName);
+            Logger.ConsoleLogger.Log(ServerProcess.ProcessName);
             ServerProcess.OutputDataReceived += (sender,e) => OutPutEvent?.Invoke(e);
             ServerProcess.BeginOutputReadLine();
             ServerProcess.WaitForExit();
@@ -69,18 +69,7 @@ namespace Endless_Development_Project_Studio.Server
         {
             try
             {
-                ID = ServerProcess.Id;
-                Console.WriteLine(ID);
-              
-
-                var process1 = new Process();
-                process1.StartInfo.FileName = "cmd.exe";
-                process1.StartInfo.CreateNoWindow = true;
-                process1.StartInfo.RedirectStandardInput = true;
-                process1.StartInfo.UseShellExecute = false;
-                process1.StartInfo.CreateNoWindow = false;
-                process1.Start();
-                process1.StandardInput.WriteLine("taskkill /f /PID "+ID);
+                ServerProcess.Kill();
             }
             catch { }
         }

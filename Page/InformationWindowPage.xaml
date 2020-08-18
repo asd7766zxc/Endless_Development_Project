@@ -10,7 +10,7 @@
       Title="InformationWindowPage">
 
     <Grid>
-        <Border Grid.Row="1" Margin="10" Background="#252526">
+        <Border Grid.Row="1" Margin="10" Background="#73252526">
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="0.1" />
             </Border.Effect>
@@ -20,10 +20,10 @@
                     <RowDefinition Height="1" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Border Background="#202225" >
+                <Border Background="#73202225" >
                   
                 </Border>
-                <Border x:Name="Info" Background="#03A9F4" HorizontalAlignment="Right" Height="10"  Margin="0 0 10 0" VerticalAlignment="Center" Width="10">
+                <Border x:Name="Info" Background="#AA03A9F4" HorizontalAlignment="Right" Height="10"  Margin="0 0 10 0" VerticalAlignment="Center" Width="10">
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="0.2" />
                     </Border.Effect>
@@ -48,14 +48,14 @@
                         </EventTrigger>
                     </Border.Triggers>
                 </Border>
-                <Border Grid.Row="1" Background="#03A9F4" >
+                <Border Grid.Row="1" Background="#AA03A9F4" >
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="0.2" />
                     </Border.Effect>
                 </Border>
                 <Label Name="Version"  FontSize="12" Content="" Foreground="White" FontFamily="{StaticResource LatoRegular}" />
 
-                <Border Grid.Row="2" Margin="0" Background="#252526">
+                <Border Grid.Row="2" Margin="0" Background="#73252526">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="22" />

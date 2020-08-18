@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Endless_Development_Project_Studio.EDP_GUI.SideButtonMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Endless_Development_Project_Studio.EDP_GUI"
+             mc:Ignorable="d" 
+             MouseEnter="UserControl_MouseEnter"
+             MouseLeave="UserControl_MouseLeave"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- <StackPanel Name="MainStackPanel">
+        
+        <Button Height="60" Width="60" Padding="5" FontSize="30" Style="{StaticResource CompositionButton}" FontFamily="{StaticResource FontAwesome}" Content="&#xf015;" />
+        <Button Height="60" Width="60" Padding="5" FontSize="30" Style="{StaticResource CompositionButton}" FontFamily="{StaticResource FontAwesome}" Content="&#xf086;" />
+        <Button Height="60" Width="60" Padding="5" FontSize="30" Style="{StaticResource CompositionButton}" FontFamily="{StaticResource FontAwesome}" Content="&#xf233;" />
+        <Button Height="60" Width="60" Padding="5" FontSize="30" Style="{StaticResource CompositionButton}" FontFamily="{StaticResource FontAwesome}" Content="&#xf07b;" />
+        <Button Height="60" Width="60" Padding="5" FontSize="30" Style="{StaticResource CompositionButton}" FontFamily="{StaticResource FontAwesome}" Content="&#xf1ce;" />
+    </StackPanel> -->
+
+        <Button Height="60" Width="60" FontSize="30"  Style="{StaticResource CompositionButton}" FontFamily="{StaticResource FontAwesome}" Content="&#xf0c8;" RenderTransformOrigin="0.5,0.5" Click="Button_Click"  >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+        </Button>
+        <ItemsControl MouseEnter="ButtonList_MouseEnter" MouseLeave="ButtonList_MouseLeave" Grid.Row="1" Name="ButtonList" Loaded="ButtonList_Loaded">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:ButtonControl Height="60" Width="60" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.Template>
+                <ControlTemplate>
+                    <Border
+            BorderThickness="{TemplateBinding Border.BorderThickness}"
+            Padding="{TemplateBinding Control.Padding}"
+            BorderBrush="{TemplateBinding Border.BorderBrush}"
+            Background="{TemplateBinding Panel.Background}"
+            SnapsToDevicePixels="True">
+
+                        <ItemsPresenter
+                        SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                    </Border>
+                </ControlTemplate>
+            </ItemsControl.Template>
+        </ItemsControl>
+
+
+    </Grid>
+</UserControl>

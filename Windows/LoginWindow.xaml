@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Endless_Development_Project_Studio.Windows"
+        xmlns:local1="clr-namespace:Endless_Development_Project_Studio.RenderBackground"
         mc:Ignorable="d"
         WindowStyle="None"
-        Title="LoginWindow" Height="600" Width="600">
+        Title="LoginWindow" Height="600" Width="500">
     <Window.Resources>
         <Style TargetType="local:LoginWindow">
             <Setter Property="Effect">
@@ -170,7 +171,14 @@
             GlassFrameThickness="0"
             />
     </WindowChrome.WindowChrome>
-    <Border Background="#1e1e1e">
-        <Frame NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}" />
-    </Border>
+   
+        <Grid>
+       <Grid.Background>
+            <ImageBrush ViewportUnits="Absolute" ImageSource="/Image/Mounment-3.png" Viewport="-300 0 1152 642"/>
+        </Grid.Background> 
+           
+
+        <Frame  Margin="100" NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}" />
+    </Grid>
+   
 </Window>

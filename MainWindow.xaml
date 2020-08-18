@@ -8,12 +8,14 @@
         xmlns:local1="clr-namespace:Chat_Pro_NCP"
         xmlns:local2="clr-namespace:Endless_Development_Project_Studio.WindowFrame"
         xmlns:local3="clr-namespace:Server_Restart_Final"
+        xmlns:local11="clr-namespace:Endless_Development_Project_Studio.EDP_GUI"
+        xmlns:local12="clr-namespace:Endless_Development_Project_Studio.TopTools"
         mc:Ignorable="d"
         WindowStyle="None"
         Icon="Image/cb1zb-qy5fx-001.ico"
-        Background="Black"
         AllowsTransparency="True"
         Title="MainWindow" Height="700" Width="900">
+   
     <Window.Resources>
         <Style TargetType="local:MainWindow">
             <Setter Property="Effect">
@@ -26,6 +28,7 @@
                     <ControlTemplate TargetType="{x:Type Window}">
                         <Border Padding="{Binding OuterMarginSizeThickness,FallbackValue=0}">
                             <Grid>
+                               
                                 <Border x:Name="Container"
                                         Background="Transparent"
                                         CornerRadius="{Binding WindowCornerRadius}"/>
@@ -50,9 +53,10 @@
                                     </Grid.RowDefinitions>
 
 
-                                    <Grid Background="#2D2D30" Grid.Column="0" Panel.ZIndex="1">
+                                    <Grid Background="#731e1e1e" Grid.Column="0" Panel.ZIndex="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
+                        
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
@@ -60,20 +64,22 @@
                                         <Button Style="{StaticResource Hoverless}" WindowChrome.IsHitTestVisibleInChrome="True"  Command="{Binding MenuCommand}" Grid.ColumnSpan="2" Margin="0,0,632,0">
 
                                         </Button>
+                                        <Polyline Margin="0 -20 0 0" Name="background2" Points="-5 50,-5 20,260 20,285 50,5 50" Fill="#AA1e1e1e"  />
+                                        
 
                                         <Viewbox  Grid.Column="0" Grid.ColumnSpan="1" Margin="6">
                                             <StackPanel>
                                                 <TextBlock Name="TitleBlock" FontFamily="{StaticResource LatoRegular}" FontSize="500" Margin="0,0,0,-5">
-                                                    <Run Text="Endless Development Project Studio" Foreground="{StaticResource ForegroundGrayBrush}"/>
+                                                    <Run Text="Endless Development Project Studio" Foreground="#73FFFF"/>
                                                       <Run Text="{Binding UserName}" Foreground="{StaticResource ForegroundGrayBrush}"/>
                                                 </TextBlock>
                                             </StackPanel>
                                         </Viewbox>
-
+                                     
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
-                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
-                                            <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Foreground="{StaticResource ForegroundGrayBrush}" Content="-"/>
+                                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" FontFamily="{StaticResource FontAwesome}" Foreground="{StaticResource ForegroundGrayBrush}" Content="&#xf2d1;"/>
+                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}" FontFamily="{StaticResource FontAwesome}" Foreground="{StaticResource ForegroundGrayBrush}" Content="&#xf2d0;" />
+                                            <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" FontFamily="{StaticResource FontAwesome}" Foreground="{StaticResource ForegroundGrayBrush}" Content="&#xf00d;"/>
                                         </StackPanel>
                                     </Grid>
                                     <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
@@ -172,22 +178,38 @@
     </Window.Resources>
     <WindowChrome.WindowChrome>
         <WindowChrome
-            ResizeBorderThickness="20"
-            CaptionHeight="32"
-            CornerRadius="10"
+            ResizeBorderThickness="{Binding ResizeBorder}"
+            CaptionHeight="30"
+            CornerRadius="0"
             GlassFrameThickness="0"
             />
     </WindowChrome.WindowChrome>
     <Border Background="#0000" Height="Auto" Width="Auto">
         <Grid>
+            <Grid.Background>
+                <ImageBrush ViewportUnits="Absolute" ImageSource="Image/Konachan.com - 166206 sample_waifu2x_art_noise1_scale_tta_1.png" Viewport="0 0 1920 1080"/>
+            </Grid.Background>
+            <Border VerticalAlignment="Top" Background="#AA1e1e1e" Height="30" >
+            </Border>
          
-            <Grid Background="#1e1e1e">
+            <local12:DatePickerControl VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 10 0" />
+            <local12:UserStatus HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 40 10 0" Height="70" Width="70"/>
+            <Border Margin=" 0 30 0 0 ">
+            <Frame Name="MainContainer" NavigationUIVisibility="Hidden" Margin="0 0 0 0"  Height="{Binding ActualHeight,RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=Border}}"/>
+          </Border>  
+            <local11:SideButtonMenu Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 0 0 0" />
+            <local12:SideMenuControl VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="{Binding ActualHeight,RelativeSource={RelativeSource AncestorType=Grid}}" />
+            <local12:ChatControl VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 40 0"  Height="450" Width="700"/>
+            
+            <!-- <Grid Background="#1e1e1e">
+            <local11:SideButtonMenu Grid.Column="2" />
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="1" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-              
+
                 <Border Grid.Column="1" BorderThickness="0" Background="#2f2f2f" BorderBrush="Transparent">
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="1" />
@@ -205,14 +227,15 @@
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
+             <Frame Name="MainContainer" NavigationUIVisibility="Hidden"  Height="{Binding ActualHeight,RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=Border}}"/>
                 <Border Grid.Column="2" Margin="0 0 0 0" Height="Auto">
-                    <Frame Name="MainContainer" NavigationUIVisibility="Hidden"  Height="{Binding ActualHeight,RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=Border}}"/>
+                   
                 </Border>
-            
+
             </Grid>
-           
-        </Grid>
-     
+
+        </Grid>-->
+     </Grid>
     </Border>
 </Window>
     

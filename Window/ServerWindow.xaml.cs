@@ -1,9 +1,11 @@
 ﻿using Endless_Development_Project_Studio.Server;
 using Endless_Development_Project_Studio.ServerOutputControl;
+using NF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,30 +24,40 @@ namespace Endless_Development_Project_Studio
     public partial class ServerWindow : Window
     {
         SourceServer baseServer;
-        LogClient client = new LogClient();
-
+        NF.TCPClient m_Client;
+        Regex TimePattern { get; set; }
+        Regex TypePattern { get; set; }
         public ServerWindow(string StartParameter,string StartFolder)
         {
-            client.LogEvent += Client_LogEvent;
+            TimePattern = new Regex(@"\[\d{1,2}:\d{1,2}:\d{1,2}\]");
+            TypePattern = new Regex(@"\s\[(.+)/(\w+)\]");
+            m_Client = new NF.TCPClient("192.168.1.101", 1523);
+            m_Client.DataReceived += new NF.TCPClient.DelegateDataReceived(OnClientDataReceived);
             InitializeComponent();
-            //StringBuilder sb = new StringBuilder();
-            //sb.Append("java -server -Xms1024M -Xmx10240M -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+UseNUMA -XX:+CMSParallelRemarkEnabled -XX:MaxGCPauseMillis=50 -XX:+UseAdaptiveGCBoundary -XX:-UseGCOverheadLimit -XX:+UseBiasedLocking -XX:SurvivorRatio=8 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=15 -XX:UseSSE=3 -XX:+UseFastAccessorMethods -XX:+UseStringCache -XX:+UseCompressedOops -XX:+OptimizeStringConcat -XX:+UseFastAccessorMethods -XX:+AggressiveOpts");
-            //sb.Append(" -jar");
-            //sb.Append(@" E:\ServerTest\minecraft_server.1.7.10.jar");
-            //sb.Append(" nogui");
-
+            
             baseServer = new SourceServer(StartParameter, StartFolder);
             baseServer.OutPutEvent += BaseServer_OutPutEvent;
             baseServer.CloseEvent += BaseServer_CloseEvent;
             this.Loaded += ServerWindow_Loaded;
         }
 
+        private void OnClientDataReceived(TCPClient client, byte[] bytes)
+        {
+            var log = Encoding.UTF8.GetString(bytes);
+            if (log.StartsWith("s,"))
+            {
+                var c = log.Substring(2);
+                baseServer.Write(c);
+                P.AddToOutput("FFEB3B", "Remote", "> " + c, "");
+            }
+        }
+
         private void Client_LogEvent(object Log)
         {
             var log = (string)Log;
-            if (log.Split(',')[0] == "s")
+            if (log.StartsWith("s,"))
             {
-                var c = log.Split(',')[1];
+                var c = log.Substring(2);
                 baseServer.Write(c);
                 P.AddToOutput("FFEB3B", "Remote", "> " + c, "");
             }
@@ -61,17 +73,40 @@ namespace Endless_Development_Project_Studio
 
         private void ServerWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            client.Setup();
+            m_Client.Connect();
             baseServer.Start();
         }
 
         private void BaseServer_OutPutEvent(System.Diagnostics.DataReceivedEventArgs e)
         {
-
+           
+      
             try
             {
                 var log = e.Data;
                 if (log != null)
+                    if (TimePattern.Match(log).Success)
+                    {
+                        if (TypePattern.Match(log).Success)
+                        {
+                            var result = log.Remove(0, TimePattern.Match(log).ToString().Length);
+                            var type = TypePattern.Match(log).ToString().Split('/')[1].Split(']')[0];
+                            var color = "8BC34A";
+                            if (type == "INFO")
+                                color = "64B5F6";
+                            else if (type == "WARN")
+                                color = "f44336";
+                            else if (type == "ERROR")
+                                color = "f44336";
+                            m_Client.Send(Encoding.UTF8.GetBytes("C," + color + "|" + log.Split('[')[1].Split(']')[0] + "|" + type + "|" + result));
+                           P.AddToOutput(color, TimePattern.Match(log).ToString(), result, type);
+                        }
+                    }
+                    else
+                    {
+                        P.AddToOutput("fff", "", log, "");
+                    }
+                    /*
                     if (log.Split('[')[1] != null)
                         if (log.Split('[')[1].Split(']')[0] != null)
                             if (log.Split('[')[1].Split(']')[0].Split(':') != null)
@@ -88,7 +123,7 @@ namespace Endless_Development_Project_Studio
                                         color = "f44336";
                                     else if (type == "ERROR")
                                         color = "f44336";
-                                    client.SendString("C," + color + "|" + log.Split('[')[1].Split(']')[0] + "|" + result + "|" + type);
+                                    client.SendString("C," + color + "|" + log.Split('[')[1].Split(']')[0]+ "|" + type + "|" + result);
                                     Task.Run(() => { P.AddToOutput(color, log.Split('[')[1].Split(']')[0], result, type); });
                                 }
                                 else
@@ -96,7 +131,7 @@ namespace Endless_Development_Project_Studio
                                     client.SendString("C," + "" + "|" + log + "|" + "" + "|" + "");
                                     P.AddToOutput("fff", "", log, "");
                                 }
-
+                                */
             }
             catch { }
 
@@ -127,6 +162,11 @@ namespace Endless_Development_Project_Studio
 
 
         private async void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            await baseServer.Close();
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             await baseServer.Close();
         }

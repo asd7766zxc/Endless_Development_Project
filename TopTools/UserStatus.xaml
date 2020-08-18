@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="Endless_Development_Project_Studio.TopTools.UserStatus"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Endless_Development_Project_Studio.TopTools"
+             xmlns:local1="clr-namespace:Chat_Pro_NCP"
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="250">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="MouseEnter">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Width" From="70"  To="250" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="background1" From="0"  To="1" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="background2" From="0"  To="1" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="User" From="0"  To="1" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Details" From="0"  To="1" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Width" From="250"  To="70" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="background1"   To="0" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="background2"  To="0" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="User" To="0" >
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Details"  To="0">
+                        <DoubleAnimation.EasingFunction>
+                            <CircleEase EasingMode="EaseInOut"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid>
+        <Rectangle HorizontalAlignment="Right" Fill="#73101010" Margin="0 0 10 0" Height="50" Width="50">
+            <Rectangle.RenderTransform>
+                <RotateTransform CenterX="25" CenterY="25" Angle="45" />
+            </Rectangle.RenderTransform>
+        </Rectangle>
+     
+        <Viewbox Margin="-50 -35 0 0" Height="25" Width="180" >
+            <Label Name="User" Opacity="0" Content="" FontFamily="{StaticResource LatoRegular}" Foreground="White"/>
+         </Viewbox>
+        <Viewbox Margin="-50 35 0 0" Height="25" Width="180" >
+            <Label Name="Details" Opacity="0" Content="" FontFamily="{StaticResource LatoRegular}" Foreground="White"/>
+        </Viewbox>
+        <Polyline Margin="15 10 0 0" Name="background1" Opacity="0"  Points="-5 -5,-5 20,160 20,185 -5,5 -5" Fill="#0D4DD0E1"  />
+        <Polyline Margin="15 20 0 0" Name="background2" Opacity="0" Points="-5 45,-5 20,160 20,185 45,5 45" Fill="#0D4DD0E1"  />
+        <Border Name="Mask"
+                BorderBrush="#4FC3F7"
+                BorderThickness="0"
+                Width="70"
+                HorizontalAlignment="Right"
+                CornerRadius="{Binding ActualHeight,RelativeSource={RelativeSource Self}}">
+            <Border.Background>
+                <ImageBrush  x:Name="UserAvater" ImageSource="{Binding AvatarUrl,Converter={local1:PathUrlToImageConverter}}" />
+            </Border.Background>
+            <Border.Effect>
+                <BlurEffect Radius="0.25" />
+            </Border.Effect>
+           
+        </Border>
+    </Grid>
+</UserControl>

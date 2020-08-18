@@ -1,9 +1,11 @@
 ﻿using Endless_Development_Project_Studio.Connection;
+using Endless_Development_Project_Studio.Logger;
 using Endless_Development_Project_Studio.Managers;
 using Endless_Development_Project_Studio.SQL;
 using Endless_Development_Project_Studio.SQL.Chat;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,7 @@ namespace Chat_Pro_NCP
     /// </summary>
     public partial class ChatItemCollectionsControl : Page
     {
+      
         public ChatItemCollectionsControl()
         {
             InitializeComponent();
@@ -49,16 +52,28 @@ namespace Chat_Pro_NCP
             Task.Run(() =>
             {
                 sqlchat.MessageEvent += Sqlchat_MessageEvent;
+                sqlchat.UpdateEvent += Sqlchat_UpdateEvent;
                 cts.Connect("cr-reports.ddns.net", 1433, "f");
                 sqlchat.Connect();
             });
         }
+
+        private void Sqlchat_UpdateEvent(Endless_Development_Project_Studio.ChatsC msg)
+        {
+            SocketStatus.UpdateNewMessage();
+            Dispatcher.Invoke(() =>
+            {
+                IC.Items.Add(new ChatItemViewModel { AvatarUrl = cts.GetServerData(msg.userid).FirstOrDefault().Account.Split('|')[1], message = msg.message, Date = msg.Date.Split(':')[0] + "/" + msg.Date.Split(':')[1] + "/" + msg.Date.Split(':')[2] + " " + msg.Date.Split(':')[3] + ":" + msg.Date.Split(':')[4] + ":" + msg.Date.Split(':')[5], Modify = msg.Modify, user = msg.user, Name = msg.user });
+                SVroller.ScrollToEnd();
+            });
+        }
+
         public void Disconnect()
         {
             Task.Run(() =>
             {
                 sqlchat.MessageEvent -= Sqlchat_MessageEvent;
-             
+                sqlchat.UpdateEvent -= Sqlchat_UpdateEvent;
                 sqlchat.Disconnect();
             });
         }
@@ -91,17 +106,24 @@ namespace Chat_Pro_NCP
                 }
             });
         }
-
+        Stopwatch d = new Stopwatch();
         private void Inputtb_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
                 if (!string.IsNullOrEmpty(inputtb.Text))
                     if (!string.IsNullOrWhiteSpace(inputtb.Text))
                     {
+                     
+                        d.Start();
                         sqlchat.Send(new Message { message = inputtb.Text, user = DataManagers.account.UserName, _short = 0, id = new Random().Next(0, 9999999), Date = DateTime.Now.ToString("yyyy:MM:dd:HH:mm:ss"), Address = "127.0.0.1", Modify = false, userid = int.Parse(DataManagers.account.UserID) },0);
                         inputtb.Text = "";
+                        d.Stop();
+                        ConsoleLogger.Log($"Send Elapsed {d.ElapsedTicks * 1000000F / Stopwatch.Frequency:n3}μs");
+                        d.Reset();
+                        
                     }
         }
+      
     }
 }
 

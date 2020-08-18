@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\App.xaml
-14647502101
+47-475334368
+1-630296797
+17515502857
+171-1638074937
+Chat\ChatItemCollectionsControl.xaml;Chat\ChatItemControl.xaml;ContentResize\ResizerStyle.xaml;Controls\ChatListControl.xaml;Controls\ChatListItemControl.xaml;Controls\LeftSideMenuList.xaml;Controls\ServerSettingsControl.xaml;Controls\SideMenuControl.xaml;Controls\TopCoverLoadingControl.xaml;Controls\VoiceGroupControl.xaml;DialogSystem\LoadingDialog.xaml;EDP-GUI\ButtonControl.xaml;EDP-GUI\SideButtonMenu.xaml;MainWindow.xaml;Pages\GlobalPage.xaml;Pages\HomePage.xaml;Pages\ModPage.xaml;Pages\Server\RemoteServerPage.xaml;Pages\Server\ServerManagerPage.xaml;Pages\ServerPage.xaml;Page\ChatPage.xaml;Page\InformationWindowPage.xaml;Page\LoginPage.xaml;Page\MainPage.xaml;Page\OnlinePage.xaml;Page\SyncUnitTestPage.xaml;Page\VoicePage.xaml;RenderBackground\BackgroundContainer.xaml;ServerOutputControl\OutPutControl.xaml;ServerOutputControl\OutPutItemControl.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Naudio\VoiceChatContainer.xaml;Styles\TextBox.xaml;TopTools\ChatControl.xaml;TopTools\DatePickerControl.xaml;TopTools\SideMenuControl.xaml;TopTools\UserStatus.xaml;UI\ProgressBarControl.xaml;WindowFrame\FrameControl.xaml;WindowFrame\WindowFrameContainer.xaml;Windows\LoginWindow.xaml;Windows\Resize\ResizerStyle.xaml;Window\CustomWindow\CustomWindow.xaml;Window\RemoteServer\RemoteServerWindow.xaml;Window\ServerWindow.xaml;
 
-96-983080712
-451899290571
-Controls\ChatListControl.xaml;Controls\ChatListItemControl.xaml;Controls\LeftSideMenuList.xaml;Controls\SideMenuControl.xaml;Controls\VoiceGroupControl.xaml;MainWindow.xaml;Page\ChatPage.xaml;Page\LoginPage.xaml;Page\VoicePage.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Naudio\VoiceChatContainer.xaml;Windows\Resize\ResizerStyle.xaml;
-
-True
+False
 

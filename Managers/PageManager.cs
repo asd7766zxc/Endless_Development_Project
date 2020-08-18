@@ -12,17 +12,20 @@ namespace Endless_Development_Project_Studio.Managers
     public class PageManager 
     {
         public Dictionary<string, Page> PageComplex { get; set; }
+        public ChatItemCollectionsControl ChatPage { get; set; }
         public static PageManager Instance 
             => new PageManager();
         public PageManager()
         {
+            ChatPage = new ChatItemCollectionsControl();
             PageComplex = new Dictionary<string, Page>();
-            PageComplex.Add("Chat", new ChatItemCollectionsControl());
+            PageComplex.Add("Chat", ChatPage);
             PageComplex.Add("Home", new HomePage());
-            PageComplex.Add("Server", new ServerPage());
-            PageComplex.Add("Global", new GlobalPage());
+            PageComplex.Add("\xf233", new ServerPage());
+            PageComplex.Add("\xf1ce", new GlobalPage());
             PageComplex.Add("Login", new LoginPage());
-            PageComplex.Add("Mod", new ModPage());
+            PageComplex.Add("\xf07b", new ModPage());
+            PageComplex.Add("\xf013", new ModPage());
         }
     }
 }

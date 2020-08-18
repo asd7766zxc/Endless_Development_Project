@@ -14,6 +14,8 @@ namespace Endless_Development_Project_Studio.Connection
 {
     public static class SocketStatus
     {
+        public delegate void NewMessageEventHandler();
+        public static event NewMessageEventHandler MessageEvent;
         public static int Page = 0;
         public static Clients GlobalSynchronizeClient = new Clients();
     //    static CheckClient cClient = new CheckClient();
@@ -21,7 +23,10 @@ namespace Endless_Development_Project_Studio.Connection
         public static event ReceiveDataHandler LoginComplect;
         public static Voice_Client voice_Client = new Voice_Client();
         public static VoiceUserEvent voiceUserEvent = new VoiceUserEvent();
-        public static string GetIpAddress { get { return Dns.GetHostAddresses("cr-reports.ddns.net").Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString(); } private set { } }
+        public static string GetIpAddress {
+            get {
+                return Dns.GetHostAddresses("cr-reports.ddns.net").Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString();
+            } private set { } }
         public static dboReport Account;
      //   public static Player_RPC player_RPC = new Player_RPC();
       //  public static MainClient main_client = new MainClient();
@@ -29,6 +34,10 @@ namespace Endless_Development_Project_Studio.Connection
         static SocketStatus()
         {
             SocketStatus.GlobalSynchronizeClient.Setup();
+        }
+        public static void UpdateNewMessage()
+        {
+            MessageEvent?.Invoke();
         }
         public static void Login(string ac, string ps)
         {

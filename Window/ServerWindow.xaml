@@ -30,7 +30,7 @@
         <Grid Grid.Row="2">
             
             <TextBox x:Name="Input" Grid.Row="2" Foreground="White" FontSize="13" FontFamily="{StaticResource LatoRegular}"  VerticalAlignment="Center" Style="{DynamicResource RegularTextBoxStyle}" KeyDown="TextBox_KeyDown" />
-
+            <Button Style="{StaticResource RegularButtonStyle}" HorizontalAlignment="Right" Width="50" Click="Button_Click"></Button>
            
         
         </Grid>

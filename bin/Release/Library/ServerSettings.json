@@ -1,0 +1,12 @@
+[
+  {
+    "JarFile": "E:\\OwO- Server\\Serv er\\minecraft_server.1.7.10.jar",
+    "MinRam": "-Xms1024M",
+    "MaxRam": "-Xmx10240M",
+    "Parameter": "-XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+UseNUMA -XX:+CMSParallelRemarkEnabled -XX:MaxGCPauseMillis=50 -XX:+UseAdaptiveGCBoundary -XX:-UseGCOverheadLimit -XX:+UseBiasedLocking -XX:SurvivorRatio=8 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=15 -XX:UseSSE=3 -XX:+UseFastAccessorMethods -XX:+UseStringCache -XX:+UseCompressedOops -XX:+OptimizeStringConcat -XX:+UseFastAccessorMethods -XX:+AggressiveOpts",
+    "ChangeDate": "2020/2/20 下午 08:27:14",
+    "Title": "None",
+    "serverid": 0,
+    "StartFolder": "E:\\OwO- Server\\Serv er\\"
+  }
+]

@@ -13,7 +13,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ContentControl}">
-                        <Border x:Name="background" BorderThickness="0 1 0 0" BorderBrush="#42454A" Background="#AA292929">
+                        <Border x:Name="background" BorderThickness="0 1 0 0" BorderBrush="#42454A" Background="#73292929">
                             <Grid x:Name="container" Background="Transparent">
                                 <Grid.ColumnDefinitions>
 
