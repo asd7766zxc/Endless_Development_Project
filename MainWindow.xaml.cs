@@ -120,7 +120,7 @@ namespace Endless_Development_Project_Studio
                 //SocketStatus.player_RPC.initialize();
                 Name = (string)Parameter;
                 //SocketStatus.player_RPC.UpdatePresence("edp", File.ReadAllText(@"C:\EDP\Build.json").Split('|')[1], "edp-smalllogo",(string)Parameter);
-                cts.Connect("cr-reports.ddns.net", 1433, "f");
+                cts.Connect(Config.ConnectionStringEDP, 1433, "f");
                 //TODO:cts.Connect("192.168.1.103", 1433, "f");
                 cts.SetPlayerOnline(SocketStatus.Account);
                 SocketStatus.GlobalSynchronizeClient.Login(SocketStatus.Account);

@@ -2034,7 +2034,7 @@ namespace Chat_Pro_NCP
             try
             {
                 File.WriteAllText(@"C:\EDP\LocalData\LocalConfig.json", ComboboxInputSoundDeviceNameClient.SelectedIndex+"|"+ ComboboxOutputSoundDeviceNameClient.SelectedIndex);
-                m_Config.IpAddressClient = Dns.GetHostAddresses("cr-reports.ddns.net").Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString();
+                m_Config.IpAddressClient = Dns.GetHostAddresses(Config.ConnectionStringEDP).Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString();
                 m_Config.IPAddressServer = "127.0.0.1";
                 m_Config.PortClient = 15624;
                 m_Config.PortServer = 65536;

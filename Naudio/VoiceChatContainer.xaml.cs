@@ -101,7 +101,7 @@ namespace NAudioDemo.NetworkChatDemo
         {
             if (!connected)
             {
-                IPEndPoint endPoint = new IPEndPoint(Dns.GetHostAddresses("cr-reports.ddns.net").Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault(), 15123);
+                IPEndPoint endPoint = new IPEndPoint(Dns.GetHostAddresses(Config.ConnectionStringEDP).Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault(), 15123);
                 int inputDeviceNumber = comboBoxInputDevices.SelectedIndex;
                 selectedCodec = ((CodecComboItem)comboBoxCodecs.SelectedItem).Codec;
                 Connect(endPoint, inputDeviceNumber, selectedCodec);

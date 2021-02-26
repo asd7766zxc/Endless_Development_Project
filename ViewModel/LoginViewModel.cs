@@ -45,7 +45,7 @@ namespace Chat_Pro_NCP
                 DataManagers.account.password = pass;
 
                 var Client = DataBaseManager.Instance.DataBaseClient;
-                Client.Connect("cr-reports.ddns.net", 1433, "f");
+                Client.Connect(Config.ConnectionStringEDP, 1433, "f");
                 var Data = Client.GetServerDataByAccount(email).FirstOrDefault();
                 if (Data.Password == pass)
                 {

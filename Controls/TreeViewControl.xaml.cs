@@ -101,10 +101,11 @@ namespace Endless_Development_Project_Studio.Controls
 
         private void DT_Tick(object sender, EventArgs e)
         {
+            /*
             Collecstion["TestSub"].X1 += 10;
             Collecstion["TestSub"].X2 += 10;
             Collecstion["TestSub"].Y2 += 10;
-            Collecstion["TestSub"].Y1 += 10;
+            Collecstion["TestSub"].Y1 += 10;*/
         }
 
         public void BeingDraw()

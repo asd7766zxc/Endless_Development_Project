@@ -25,7 +25,7 @@ namespace Endless_Development_Project_Studio.Connection
         public static VoiceUserEvent voiceUserEvent = new VoiceUserEvent();
         public static string GetIpAddress {
             get {
-                return Dns.GetHostAddresses("cr-reports.ddns.net").Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString();
+                return Dns.GetHostAddresses(Config.ConnectionStringEDP).Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString();
             } private set { } }
         public static dboReport Account;
      //   public static Player_RPC player_RPC = new Player_RPC();
@@ -41,9 +41,9 @@ namespace Endless_Development_Project_Studio.Connection
         }
         public static void Login(string ac, string ps)
         {
-            // cClient.Connect(Dns.GetHostAddresses("cr-reports.ddns.net").Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString(), 14330, $"L?{ac}|{ps}");
+            // cClient.Connect(Dns.GetHostAddresses(Config.ConnectionStringEDP).Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString(), 14330, $"L?{ac}|{ps}");
           
-           // cClient.Connect(Dns.GetHostAddresses("cr-reports.ddns.net").Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString(), 10127, $"L?{ac}|{ps}");
+           // cClient.Connect(Dns.GetHostAddresses(Config.ConnectionStringEDP).Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString(), 10127, $"L?{ac}|{ps}");
         }
         public static void L(string l)
         {
@@ -61,7 +61,7 @@ namespace Endless_Development_Project_Studio.Connection
             Page = 1;
             LoginComplect?.Invoke(Message);
             UserName = Message;
-          //  try { main_client.Connect("cr-reports.ddns.net", 14330); } catch { }
+          //  try { main_client.Connect(Config.ConnectionStringEDP, 14330); } catch { }
         }
         public static void Close()
         {

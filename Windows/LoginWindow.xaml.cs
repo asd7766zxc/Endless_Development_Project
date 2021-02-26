@@ -39,7 +39,7 @@ namespace Endless_Development_Project_Studio.Windows
                 var email = File.ReadAllText(@"C:\EDP\LocalData\LocalContainer.json").Split('|')[0];
                 var pass = File.ReadAllText(@"C:\EDP\LocalData\LocalContainer.json").Split('|')[1];
                 var Client = DataBaseManager.Instance.DataBaseClient;
-                Client.Connect("cr-reports.ddns.net", 1433, "f");
+                Client.Connect(Config.ConnectionStringEDP, 1433, "f");
                 var Data = Client.GetServerDataByAccount(email).FirstOrDefault();
                 if (Data.Password == pass)
                 {

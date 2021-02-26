@@ -24,7 +24,7 @@ namespace Endless_Development_Project_Studio.Managers
             PageComplex.Add("\xf233", new ServerPage());
             PageComplex.Add("\xf1ce", new GlobalPage());
             PageComplex.Add("Login", new LoginPage());
-            PageComplex.Add("\xf07b", new ModPage());
+            PageComplex.Add("\xf07b", new ModPackSeasonPage());
             PageComplex.Add("\xf013", new ModPage());
         }
     }

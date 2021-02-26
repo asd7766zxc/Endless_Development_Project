@@ -66,9 +66,7 @@
         </Rectangle>
         <Label Content="Server Explorer" Foreground="White"/>
         <TreeView Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="ServerItemViewer" Style="{DynamicResource TreeItemViewStyle}"  >
-            <e:Interaction.Behaviors>
-                <local1:BindableSelectedItemBehavior  SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
-            </e:Interaction.Behaviors>
+      
             <TreeView.Resources>
 
                 <Style TargetType="{x:Type TreeViewItem}" >

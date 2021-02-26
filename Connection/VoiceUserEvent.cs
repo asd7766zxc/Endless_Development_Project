@@ -29,7 +29,7 @@ namespace Endless_Development_Project_Studio.Connection
         public void Connect()
         {
 
-            cts.Connect("cr-reports.ddns.net", 1433, "f");
+            cts.Connect(Config.ConnectionStringEDP, 1433, "f");
          
             cts.SetPlayerInVoiceChat(SocketStatus.Account);
             DT.Start();

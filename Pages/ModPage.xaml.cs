@@ -1,4 +1,6 @@
 ﻿using Endless_Development_Project_Studio.Win32Control;
+using MojangSharp.Endpoints;
+using MojangSharp.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +35,13 @@ namespace Endless_Development_Project_Studio.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-           
+          
+        }
+        public async void Load()
+        {
+            AuthenticateResponse auth = await new Authenticate(new Credentials() { Username = "",Password = "" }).PerformRequestAsync();
+
+
         }
     }
 }

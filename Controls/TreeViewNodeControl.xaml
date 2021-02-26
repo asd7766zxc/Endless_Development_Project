@@ -15,6 +15,6 @@
                 <RotateTransform CenterX="25 " CenterY="25" Angle="45" />
             </Border.RenderTransform>
         </Border>
-        <Button Height="20" Width="20" Click="Button_Click_1" />
+        <Button Height="20" Width="20"  Margin="30 0 0 0" Click="Button_Click_1" />
     </Grid>
 </UserControl>

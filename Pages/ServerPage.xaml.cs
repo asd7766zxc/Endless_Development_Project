@@ -116,7 +116,7 @@ namespace Endless_Development_Project_Studio.Pages
             {
                 try
                 {
-                    if (!PingHost("cr-reports.ddns.net", 1433))
+                    if (!PingHost(Config.ConnectionStringEDP, 1433))
                     {
                         await ReconnectToServer();
                     }
@@ -136,7 +136,7 @@ namespace Endless_Development_Project_Studio.Pages
             {
                 try
                 {
-                    if (PingHost("cr-reports.ddns.net", 1433))
+                    if (PingHost(Config.ConnectionStringEDP, 1433))
                     {
                         try
                         {

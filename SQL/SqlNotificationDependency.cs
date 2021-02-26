@@ -19,8 +19,8 @@ namespace Endless_Development_Project_Studio
         public SqlNotificationDependency()
         {
             ConnectToSQL cts = new ConnectToSQL();
-            cts.Connect("cr-reports.ddns.net", 1433, "f");
-            string ConnectionString = $"Server=cr-reports.ddns.net,1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord";
+            cts.Connect(Config.ConnectionStringEDP, 1433, "f");
+            string ConnectionString = $"Server={Config.ConnectionStringEDP},1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord";
             SqlTableDependency<ChatsC> myDependencyTableDependency;
             try
             {

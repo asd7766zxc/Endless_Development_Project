@@ -11,7 +11,7 @@ namespace Endless_Development_Project_Studio.WebConnection
 {
     public class WebClient
     {
-        private const string SignalRurl = "http://cr-reports.ddns.net:4258/";
+        private const string SignalRurl = "http://cr-report.ddns.net:4258/";
         private HubConnection _conn;
         public delegate void OnRecivedHandler(string parameter);
         public event OnRecivedHandler OnRecived;

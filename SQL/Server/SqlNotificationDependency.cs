@@ -20,7 +20,7 @@ namespace Endless_Development_Project_Studio.SQL.Server
         public event ErrorEventHandler ErrorEvent;
         public SqlNotificationDependency()
         {
-            string ConnectionString = $"Server=cr-reports.ddns.net,1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord";
+            string ConnectionString = $"Server={Config.ConnectionStringEDP},1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord";
             SqlTableDependency<ServerEvents> myDependencyTableDependency;
             try
             {

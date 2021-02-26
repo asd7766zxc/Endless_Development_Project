@@ -215,3 +215,11 @@ C:\Users\admin\source\repos\Endless Development Project Studio\Endless Developme
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\TreeViewNodeControl.g.cs
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\TreeViewControl.baml
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Controls\TreeViewNodeControl.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\MojangSharp.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\UI\MartiralTDimesionalUi.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\UI\MartiralTDimesionalUi.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\LibZeroTier.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\UI\Season\ModPackSeasonPage.g.cs
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\UI\Season\ModPackSeasonPage.baml
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Interop.NATUPNPLib.dll
+C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\obj\Release\Endless Development Project Studio.csproj.ResolveComReference.cache

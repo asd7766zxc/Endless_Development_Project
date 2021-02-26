@@ -33,7 +33,7 @@ namespace Endless_Development_Project_Studio
         }
 
         public int CurrentPage { get; set; } = 0;
-
+        public string AvatarUrl { get; set; } = "";
         public string backgroundvideo { get { return System.Windows.Forms.Application.StartupPath + @"\Library\video.mp4"; } set { } }
 
         public double WidowMinimumWidth { get; set; } = 800;

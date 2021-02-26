@@ -30,9 +30,9 @@ namespace Endless_Development_Project_Studio.SQL.Chat
         {
             SND.ErrorEvent += SND_ErrorEvent;
             SND.MessageEvent += SND_MessageEvent;
-            cts.Connect("cr-reports.ddns.net", 1433, "f");
-            ctas.Connect("cr-reports.ddns.net", 1433, "f");
-            ctbs.Connect("cr-reports.ddns.net", 1433, "f");
+            cts.Connect(Config.ConnectionStringEDP, 1433, "f");
+            ctas.Connect(Config.ConnectionStringEDP, 1433, "f");
+            ctbs.Connect(Config.ConnectionStringEDP, 1433, "f");
             Manual_Update();
             //TODO:  cts.Connect("192.168.1.103", 1433, "f");
             //  Dt.Interval = TimeSpan.FromMilliseconds(500);
@@ -129,18 +129,18 @@ namespace Endless_Development_Project_Studio.SQL.Chat
         public void Connect(string Host, int port, string userid, string userpas)
         {
 
-            string ConnectionString = $"Server=cr-reports.ddns.net,1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord";
+            string ConnectionString = $"Server={Config.ConnectionStringEDP},1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord";
           
-            conn = new SqlConnection($"Server=cr-reports.ddns.net,1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord");
+            conn = new SqlConnection($"Server={Config.ConnectionStringEDP},1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord");
             conn.Open();
         }
        
         public void Connect(string Host, int port, string userid)
         {
-            string ConnectionString = $"Server=cr-reports.ddns.net,1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord";
+            string ConnectionString = $"Server={Config.ConnectionStringEDP},1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord";
 
     
-            conn = new SqlConnection($"Server=cr-reports.ddns.net,1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord");
+            conn = new SqlConnection($"Server={Config.ConnectionStringEDP},1433; initial catalog = chat_container; user id = SqlUser; password = SqlUserSt0rongP@assord");
             conn.Open();
         }
         public List<Message> GetServerData(string d, string ds, [CallerMemberName] string origin = "", [CallerFilePath]string filePath = "", [CallerLineNumber]int lineNumber = 0)

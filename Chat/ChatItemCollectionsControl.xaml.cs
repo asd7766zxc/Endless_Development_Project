@@ -1,4 +1,5 @@
-﻿using Endless_Development_Project_Studio.Connection;
+﻿using Endless_Development_Project_Studio;
+using Endless_Development_Project_Studio.Connection;
 using Endless_Development_Project_Studio.Logger;
 using Endless_Development_Project_Studio.Managers;
 using Endless_Development_Project_Studio.SQL;
@@ -53,7 +54,7 @@ namespace Chat_Pro_NCP
             {
                 sqlchat.MessageEvent += Sqlchat_MessageEvent;
                 sqlchat.UpdateEvent += Sqlchat_UpdateEvent;
-                cts.Connect("cr-reports.ddns.net", 1433, "f");
+                cts.Connect(Config.ConnectionStringEDP, 1433, "f");
                 sqlchat.Connect();
             });
         }

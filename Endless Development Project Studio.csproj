@@ -86,6 +86,9 @@
     <Reference Include="ESBasic">
       <HintPath>..\..\..\..\3D Objects\Catch\OMCS5.0\ESBasic.dll</HintPath>
     </Reference>
+    <Reference Include="LibZeroTier, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LibZeroTier.1.0.8\lib\netstandard2.0\LibZeroTier.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -132,6 +135,9 @@
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualC" />
+    <Reference Include="MojangSharp, Version=0.45.6678.1621, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hawezo.MojangSharp.0.5.1\lib\MojangSharp.dll</HintPath>
+    </Reference>
     <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
     </Reference>
@@ -339,6 +345,7 @@
     <Compile Include="Chat\ChatItemDesignModel.cs" />
     <Compile Include="Chat\ChatItemViewModel.cs" />
     <Compile Include="Chat\PathUrlToImageConverter.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="Connection\AppClients\Client.cs" />
     <Compile Include="Connection\AsyncConnection\AsyncClient.cs" />
     <Compile Include="Connection\CheckClient.cs" />
@@ -388,6 +395,7 @@
     <Compile Include="DataStorage\AccountSave.cs" />
     <Compile Include="DataStorage\ServerSettingsModel.cs" />
     <Compile Include="DataStorage\StorageData.cs" />
+    <Compile Include="DecentralizedNetwork\DecentralizedServer.cs" />
     <Compile Include="DialogSystem\LoadingDialog.xaml.cs">
       <DependentUpon>LoadingDialog.xaml</DependentUpon>
     </Compile>
@@ -422,6 +430,9 @@
     <Compile Include="FileTransfer\TransferServer.cs" />
     <Compile Include="Helpers\TeeViewHelper.cs" />
     <Compile Include="Helpers\TreeView\Node.cs" />
+    <Compile Include="UI\Season\ModPackSeasonPage.xaml.cs">
+      <DependentUpon>ModPackSeasonPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GlobalLockPage.xaml.cs">
       <DependentUpon>GlobalLockPage.xaml</DependentUpon>
     </Compile>
@@ -554,9 +565,14 @@
     <Compile Include="TopTools\UserStatus.xaml.cs">
       <DependentUpon>UserStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\MartiralTDimesionalUi.xaml.cs">
+      <DependentUpon>MartiralTDimesionalUi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\ProgressBarControl.xaml.cs">
       <DependentUpon>ProgressBarControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UPnPNetwork\BaseServer.cs" />
+    <Compile Include="UPnPNetwork\UPnPTool.cs" />
     <Compile Include="ViewModel\ChatListDesignModel.cs" />
     <Compile Include="ViewModel\ChatListItemDesignModel.cs" />
     <Compile Include="ViewModel\ChatlistItemViewModel.cs" />
@@ -686,6 +702,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UI\Season\ModPackSeasonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\GlobalLockPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -799,6 +819,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TopTools\UserStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MartiralTDimesionalUi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -967,6 +991,17 @@
     <Resource Include="Image\EDP-Logo256x256..png" />
     <Resource Include="Image\EDP-Logo64x64.png" />
     <Resource Include="Image\EDP-SmallLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="NATUPNPLib">
+      <Guid>{1C565858-F302-471E-B409-F180AA4ABEC6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -167,13 +167,15 @@ namespace Endless_Development_Project_Studio.Controls
             {
                 if (TreeViewGlobal.LocationCollection.ContainsKey(this.ParentID.ToString()))
                 {
+                   
                     TreeViewGlobal.Update(this.ParentID,this.id,TreeViewGlobal.LocationCollection[this.ParentID.ToString()], CahePoint);
                 }
                 if (TreeViewGlobal.LocationCollection.ContainsKey(this.id.ToString()))
                 {
+                    if(TreeViewGlobal.ParentChildPair.ContainsKey(this.id.ToString()))
                     foreach (var i in TreeViewGlobal.ParentChildPair[this.id.ToString()])
                     {
-                       
+                          if(TreeViewGlobal.LocationCollection.ContainsKey(i))
                             TreeViewGlobal.Update(this.id,int.Parse(i), CahePoint, TreeViewGlobal.LocationCollection[i]);
                         
                     }

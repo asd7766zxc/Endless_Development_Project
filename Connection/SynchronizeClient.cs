@@ -35,7 +35,7 @@ namespace Endless_Development_Project_Studio.Connection
                     attempts++;
                     Logging("Connection attempt " + attempts);
                     // Change IPAddress.Loopback to a remote IP to connect to a remote host.
-                    ClientSocket.Connect(Dns.GetHostAddresses("cr-reports.ddns.net").Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString(), PORT);
+                    ClientSocket.Connect(Dns.GetHostAddresses(Config.ConnectionStringEDP).Where(x => x.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault().ToString(), PORT);
 
                 }
                 catch (SocketException)
