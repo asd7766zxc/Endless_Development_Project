@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
     public static class Config
     {
-        public static string ConnectionStringEDP = "cr-report.ddns.net";
+        public static string ConnectionStringEDP = "cr-reports.ddns.net";
     }
 

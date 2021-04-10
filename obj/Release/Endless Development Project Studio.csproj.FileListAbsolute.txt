@@ -27,7 +27,6 @@ C:\Users\admin\source\repos\Endless Development Project Studio\Endless Developme
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Endless Development Project Studio.exe
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Endless Development Project Studio.pdb
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Dapper.dll
-C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\ESBasic.dll
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\log4net.dll
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.AspNet.SignalR.Client.dll
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Microsoft.DirectX.AudioVideoPlayback.dll
@@ -43,9 +42,6 @@ C:\Users\admin\source\repos\Endless Development Project Studio\Endless Developme
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\Newtonsoft.Json.dll
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\NSpeex.dll
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\NSpeex.Reactive.dll
-C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.Boost.dll
-C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.dll
-C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\OMCS.WPF.dll
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\SuperSocket.ClientEngine.dll
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\SuperSocket.Common.dll
 C:\Users\admin\source\repos\Endless Development Project Studio\Endless Development Project Studio\bin\Release\SuperSocket.Facility.dll
